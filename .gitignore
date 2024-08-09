@@ -170,3 +170,5 @@ tmp2.md
 terraform.tfstate.backup
 poetry.lock
 .terraform
+sandbox/s02_streamlit_aws_deployer/terraform.tfstate
+sandbox/s02_streamlit_aws_deployer/terraform.tfstate
