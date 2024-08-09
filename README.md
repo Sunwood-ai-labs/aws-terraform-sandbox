@@ -77,6 +77,11 @@ aws-terraform-sandbox/
 │  ├─ s01_streamlit_aws_setup/
 │  │  ├─ streamlit_aws_setup.tf
 │  │  ├─ terraform.tfstate
+│  ├─ s02_streamlit_aws_deployer/
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ terraform.tfvars
+│  │  ├─ terraform.tfstate
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
 ├─ issue_creator.log
@@ -97,8 +102,26 @@ aws-terraform-sandbox/
 - EC2インスタンス（Streamlitアプリケーションをホスト）
 - Elastic IP
 
+### s02_streamlit_aws_deployer
+
+このサンドボックスでは、以下のAWSリソースを作成します：
+
+- VPC
+- パブリックサブネット
+- インターネットゲートウェイ
+- ルートテーブル
+- セキュリティグループ
+- EC2インスタンス（Streamlitアプリケーションをホスト）
+- Elastic IP
+- CloudWatchイベントルール（インスタンスの起動/停止）
+- IAMロール（EC2インスタンス用、CloudWatchイベント用）
+- IAMポリシー（EC2インスタンス用）
+- IAMインスタンスプロファイル
+- セッションマネージャーの設定
+
 ## 📝 更新情報
 
+- 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0) : StreamlitアプリのデプロイメントのためのTerraform設定を追加
 - 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : ドキュメントの改善とスタイルの変更
 - 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : ヘッダー画像生成アルゴリズムの調整
 - [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : 整備化スクリプトの整備
