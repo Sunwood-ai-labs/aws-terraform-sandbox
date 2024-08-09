@@ -29,9 +29,9 @@
 
 ## 🌟 はじめに
 
-**aws-terraform-sandbox** は、AWS クラウド環境のインフラストラクチャを Terraform で自動化・管理するための実験的なプラットフォームです。このリポジトリは、初心者から上級者まで、誰でも自由にクラウドインフラストラクチャを試行錯誤しながら構築し、学習することを目的としています。
+**aws-terraform-sandbox** は、AWS クラウド環境のインフラストラクチャを Terraform で自動化・管理するための実験的なプラットフォームです。このリポジトリは、生成AIを活用してTerraformスクリプトを作成し、クラウドインフラストラクチャの構築を試行錯誤しながら学習することを目的としています。
 
-様々な Terraform のテンプレートやスクリプトを使って、実際の AWS 環境で安全に実験できるスクリプトを提供します。
+様々な Terraform のテンプレートやスクリプトを使って、実際の AWS 環境で安全に実験できるスクリプトを提供します。また、生成AIを活用してインフラストラクチャを設計・実装するためのガイドラインも含まれています。
 
 ## 🚀 はじめる
 
@@ -41,9 +41,9 @@
    cd aws-terraform-sandbox
    ```
 
-2. AWS CLIをインストールし、認証情報を設定します。
+2. [AWS CLI](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html)をインストールし、認証情報を設定します。
 
-3. Terraformをインストールします。
+3. [Terraform](https://developer.hashicorp.com/terraform/install)をインストールします。
 
 4. 目的のサンドボックス環境に移動します：
    ```
@@ -77,6 +77,8 @@ aws-terraform-sandbox/
 │  ├─ s01_streamlit_aws_setup/
 │  │  ├─ streamlit_aws_setup.tf
 │  │  ├─ terraform.tfstate
+├─ docs/
+│  ├─ REQUIREMENTS_DEFINITION.md
 ├─ issue_creator.log
 ├─ README.md
 ```
@@ -99,6 +101,10 @@ aws-terraform-sandbox/
 
 - 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : ヘッダー画像生成アルゴリズムの調整
 - [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : 整備化スクリプトの整備
+
+## 🤖 生成AI活用
+
+このリポジトリでは、生成AIを活用してTerraformスクリプトを作成しています。生成AIを使用してインフラストラクチャを設計・実装するための要件定義書は [docs/REQUIREMENTS_DEFINITION.md](docs/REQUIREMENTS_DEFINITION.md) にあります。この文書を参照することで、効果的に生成AIを活用してAWSリソースを構築する方法を学ぶことができます。
 
 ## 🤝 コントリビューション
 
