@@ -165,3 +165,6 @@ tmp2.md
 .Prothiel.md
 .Gaiah.md
 .SourceSageAssets
+
+.terraform.lock.hcl
+terraform.tfstate.backup
