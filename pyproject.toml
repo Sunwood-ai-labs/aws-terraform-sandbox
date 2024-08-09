@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "aws-terraform-sandbox"
+version = "0.1.0"
+description = ""
+authors = ["Maki <sunwood.ai.labs@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

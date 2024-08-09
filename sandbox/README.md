@@ -1,4 +1,3 @@
-
 ![](../docs/USAGE.png)
 
 # 🏖️ aws-terraform-sandbox サンドボックス環境
@@ -52,37 +51,68 @@
 各サンドボックス環境を使用するには、以下の手順に従ってください：
 
 1. 目的のサンドボックスディレクトリに移動します：
-   ```
-   cd s01_streamlit_aws_setup
-   ```
-   または
-   ```
-   cd s02_streamlit_aws_deployer
-   ```
+```
+cd s01_streamlit_aws_setup
+```
+または
+```
+cd s02_streamlit_aws_deployer
+```
 
 2. Terraformを初期化します：
-   ```
-   terraform init
-   ```
+```
+terraform init
+```
 
 3. 必要に応じて、`terraform.tfvars`ファイルを編集してカスタム設定を行います。
 
 4. Terraformプランを確認します：
-   ```
-   terraform plan
-   ```
+```
+terraform plan
+```
 
 5. リソースをデプロイします：
-   ```
-   terraform apply
-   ```
+```
+terraform apply
+```
 
 6. デプロイが完了したら、出力されたパブリックIPアドレスを使用してStreamlitアプリケーションにアクセスします。
 
 7. 使用が終わったら、リソースを削除します：
-   ```
-   terraform destroy
-   ```
+```
+terraform destroy
+```
+
+## 🔑 SSH接続
+
+EC2インスタンスにSSH接続する方法は2つあります：
+
+### 1. Session Manager経由のSSH接続
+
+1. [Session Manager プラグインをインストール](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/install-plugin-windows.html)します。
+
+2. `~/.ssh/config`ファイル（Windowsの場合は`C:\Users\YourUsername\.ssh\config`）に以下の設定を追加します：
+
+```
+host i-* mi-*
+    ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters "portNumber=%p"
+```
+
+3. 以下のコマンドでSSH接続します（インスタンスIDを実際のものに置き換えてください）：
+
+```bash
+ssh -i "path/to/your/key.pem" ubuntu@i-1234567890abcdef0
+```
+
+### 2. 直接SSH接続
+
+Elastic IPが割り当てられている場合、以下のコマンドで直接SSH接続できます：
+
+```bash
+ssh -i "path/to/your/key.pem" ubuntu@18.181.167.229
+```
+
+注意: IPアドレスは実際に割り当てられたものに置き換えてください。
 
 ## ⚠️ 注意事項
 
