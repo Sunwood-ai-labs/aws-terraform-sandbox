@@ -34,29 +34,30 @@
 </p>
 
 >[!IMPORTANT]
-> Nearly 90% of the release notes, README, and commit messages in this repository were generated using [claude.ai](https://claude.ai/), [ChatGPT4](https://chatgpt.com/), and tools like [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), and [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
+>Almost 90% of this repository's release notes, README, and commit messages are generated using [claude.ai](https://claude.ai/) and [ChatGPT4](https://chatgpt.com/) with [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), and [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
 
 ## 🌟 Getting Started
 
-**aws-terraform-sandbox** is an experimental platform designed for automating and managing AWS cloud infrastructure using Terraform. This repository aims to provide a safe and accessible environment for anyone, from beginners to experienced users, to experiment with and learn about building cloud infrastructure.
+**aws-terraform-sandbox** is an experimental platform designed to automate and manage AWS cloud infrastructure using Terraform. This repository aims to provide a safe and accessible environment for everyone, from beginners to experts, to experiment and learn by building cloud infrastructures.
 
-We offer various Terraform templates and scripts to allow you to experiment safely within a real AWS environment. 
+It offers various Terraform templates and scripts that enable you to conduct safe experiments in a real AWS environment. 
 
 ## 🎥 Demo
 
-(If a demo video is available, embed it here)
+(If you have a demo video, embed it here)
 
 ## 🚀 Getting Started
 
-(Describe how to use the repository, setup instructions, etc.)
+(Describe how to use the repository, setup steps, etc.)
 
-## 📝 Release Notes
+## 📝 Update Log
 
+- 🎉 [v1.1.0 Release](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) 🎉
 - 🎉 [v1.0.0 Release](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) 🎉
 
-## 🤝 Contributing
+## 🤝 Contribution
 
-(Describe how to contribute, etc.)
+(Describe how to contribute)
 
 ## 📄 License
 
@@ -64,4 +65,4 @@ We offer various Terraform templates and scripts to allow you to experiment safe
 
 ## 🙏 Acknowledgements
 
-(Describe acknowledgements)
+(Describe acknowledgments)

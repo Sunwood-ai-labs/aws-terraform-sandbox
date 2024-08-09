@@ -5,24 +5,17 @@
 <h2 align="center">
   ～ Building Cloud Infrastructures, Block by Block ～
 <br>
-  <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/aws-terraform-sandbox">
-<img alt="PyPI - Format" src="https://img.shields.io/pypi/format/aws-terraform-sandbox">
-<img alt="PyPI - Implementation" src="https://img.shields.io/pypi/implementation/aws-terraform-sandbox">
-<img alt="PyPI - Status" src="https://img.shields.io/pypi/status/aws-terraform-sandbox">
-<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dd/aws-terraform-sandbox">
-<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dw/aws-terraform-sandbox">
-<a href="https://github.com/Sunwood-ai-labs/aws-terraform-sandbox" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=aws-terraform-sandbox&message=Sunwood-ai-labs&color=blue&logo=github"></a>
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Sunwood-ai-labs/aws-terraform-sandbox">
-<a href="https://github.com/Sunwood-ai-labs/aws-terraform-sandbox"><img alt="forks - Sunwood-ai-labs" src="https://img.shields.io/github/forks/aws-terraform-sandbox/Sunwood-ai-labs?style=social"></a>
-<a href="https://github.com/Sunwood-ai-labs/aws-terraform-sandbox"><img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/Sunwood-ai-labs/aws-terraform-sandbox"></a>
-<a href="https://github.com/Sunwood-ai-labs/aws-terraform-sandbox"><img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/Sunwood-ai-labs/aws-terraform-sandbox"></a>
-<img alt="GitHub Release" src="https://img.shields.io/github/v/release/Sunwood-ai-labs/aws-terraform-sandbox?color=red">
-<img alt="GitHub Tag" src="https://img.shields.io/github/v/tag/Sunwood-ai-labs/aws-terraform-sandbox?sort=semver&color=orange">
-<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Sunwood-ai-labs/aws-terraform-sandbox/publish-to-pypi.yml">
+  <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/Sunwood-ai-labs/aws-terraform-sandbox">
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/Sunwood-ai-labs/aws-terraform-sandbox">
+  <img alt="License" src="https://img.shields.io/github/license/Sunwood-ai-labs/aws-terraform-sandbox">
+  <br>
+  <a href="https://github.com/Sunwood-ai-labs/aws-terraform-sandbox" title="Go to GitHub repo"><img src="https://img.shields.io/static/v1?label=Sunwood-ai-labs&message=aws-terraform-sandbox&color=blue&logo=github"></a>
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Sunwood-ai-labs/aws-terraform-sandbox?style=social">
+  <a href="https://github.com/Sunwood-ai-labs/aws-terraform-sandbox"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Sunwood-ai-labs/aws-terraform-sandbox?style=social"></a>
 <br>
 <p align="center">
   <a href="https://hamaruki.com/"><b>[🌐 Website]</b></a> •
-  <a href="https://github.com/Sunwood-ai-labs"><b>[🐱 GitHub]</b></a>
+  <a href="https://github.com/Sunwood-ai-labs"><b>[🐱 GitHub]</b></a> •
   <a href="https://x.com/hAru_mAki_ch"><b>[🐦 Twitter]</b></a> •
   <a href="https://hamaruki.com/"><b>[🍀 Official Blog]</b></a>
 </p>
@@ -38,28 +31,93 @@
 
 **aws-terraform-sandbox** は、AWS クラウド環境のインフラストラクチャを Terraform で自動化・管理するための実験的なプラットフォームです。このリポジトリは、初心者から上級者まで、誰でも自由にクラウドインフラストラクチャを試行錯誤しながら構築し、学習することを目的としています。
 
-様々な Terraform のテンプレートやスクリプトを使って、実際の AWS 環境で安全に実験できるスクリプトを提供します。 
-
-## 🎥 デモ
-
-（デモ動画があればここに埋め込む）
+様々な Terraform のテンプレートやスクリプトを使って、実際の AWS 環境で安全に実験できるスクリプトを提供します。
 
 ## 🚀 はじめる
 
-（リポジトリの利用方法、セットアップ手順などを記述する）
+1. リポジトリをクローンします：
+   ```
+   git clone https://github.com/Sunwood-ai-labs/aws-terraform-sandbox.git
+   cd aws-terraform-sandbox
+   ```
+
+2. AWS CLIをインストールし、認証情報を設定します。
+
+3. Terraformをインストールします。
+
+4. 目的のサンドボックス環境に移動します：
+   ```
+   cd sandbox/s01_streamlit_aws_setup
+   ```
+
+5. Terraformを初期化し、実行します：
+   ```
+   terraform init
+   terraform apply
+   ```
+
+6. プロンプトが表示されたら、`yes`と入力して確認します。
+
+7. デプロイが完了したら、出力されたパブリックIPアドレスにアクセスして、Streamlitアプリケーションを確認します。
+
+8. 作業終了時には、必ず以下のコマンドを実行してリソースを削除してください：
+   ```
+   terraform destroy
+   ```
+   確認プロンプトが表示されたら、`yes`と入力します。
+
+> [!WARNING]
+> `terraform destroy`コマンドは、作成したすべてのAWSリソースを削除します。実行前に、保持したいデータがないか確認してください。
+
+## 📂 プロジェクト構造
+
+```
+aws-terraform-sandbox/
+├─ sandbox/
+│  ├─ s01_streamlit_aws_setup/
+│  │  ├─ streamlit_aws_setup.tf
+│  │  ├─ terraform.tfstate
+├─ issue_creator.log
+├─ README.md
+```
+
+## 🛠 サンドボックス環境
+
+### s01_streamlit_aws_setup
+
+このサンドボックスでは、以下のAWSリソースを作成します：
+
+- VPC
+- パブリックサブネット
+- インターネットゲートウェイ
+- ルートテーブル
+- セキュリティグループ
+- EC2インスタンス（Streamlitアプリケーションをホスト）
+- Elastic IP
 
 ## 📝 更新情報
 
-- 🎉 [v1.0.0 リリース](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) 🎉
+- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : ヘッダー画像生成アルゴリズムの調整
+- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : 整備化スクリプトの整備
 
 ## 🤝 コントリビューション
 
-（コントリビューションの方法などを記述する）
+1. このリポジトリをフォークします。
+2. 新しいブランチを作成します（`git checkout -b feature/amazing-feature`）。
+3. 変更をコミットします（`git commit -m 'Add some amazing feature'`）。
+4. ブランチにプッシュします（`git push origin feature/amazing-feature`）。
+5. プルリクエストを作成します。
 
 ## 📄 ライセンス
 
-（ライセンス情報を記述する）
+このプロジェクトはMITライセンスの下で公開されています。詳細は[LICENSE](LICENSE)ファイルをご覧ください。
 
 ## 🙏 謝辞
 
-（謝辞を記述する）
+- [Terraform](https://www.terraform.io/)
+- [AWS](https://aws.amazon.com/)
+- [Streamlit](https://streamlit.io/)
+
+---
+
+開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
