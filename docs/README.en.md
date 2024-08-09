@@ -27,13 +27,13 @@
 </p>
 
 >[!IMPORTANT]
->Nearly 90% of the release notes, README, and commit messages in this repository are generated using [claude.ai](https://claude.ai/), [ChatGPT4](https://chatgpt.com/), and [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
+> Nearly all release notes, READMEs, and commit messages in this repository are generated using [claude.ai](https://claude.ai/), [ChatGPT4](https://chatgpt.com/), and AI tools like [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), and [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
 
 ## 🌟 Getting Started
 
-**aws-terraform-sandbox** is an experimental platform designed to automate and manage the infrastructure of AWS cloud environments using Terraform. This repository aims to provide a safe and accessible space for individuals of all skill levels to experiment with and learn about building cloud infrastructure.
+**aws-terraform-sandbox** is an experimental platform designed for automating and managing AWS cloud infrastructure using Terraform. This repository aims to provide a safe space for everyone, from beginners to experts, to experiment with cloud infrastructure building and learning.
 
-We provide various Terraform templates and scripts that allow you to safely experiment with real AWS environments.
+We offer various Terraform templates and scripts that enable you to safely experiment with real AWS environments.
 
 ## 🚀 Getting Started
 
@@ -47,7 +47,7 @@ We provide various Terraform templates and scripts that allow you to safely expe
 
 3. Install Terraform.
 
-4. Navigate to the desired sandbox environment:
+4. Navigate to your desired sandbox environment:
    ```
    cd sandbox/s01_streamlit_aws_setup
    ```
@@ -58,18 +58,18 @@ We provide various Terraform templates and scripts that allow you to safely expe
    terraform apply
    ```
 
-6. Enter `yes` at the prompt to confirm.
+6. Type `yes` to confirm when prompted.
 
-7. Once the deployment is complete, access the public IP address that was output to view the Streamlit application.
+7. Once deployed, access the provided public IP address to check your Streamlit application.
 
-8. After finishing your work, be sure to run the following command to delete the resources:
+8. When you finish working, ensure you run the following command to delete resources:
    ```
    terraform destroy
    ```
-   Enter `yes` at the confirmation prompt.
+   Type `yes` when prompted to confirm.
 
 > [!WARNING]
-> The `terraform destroy` command will delete all the AWS resources you created. Make sure you do not have any data you want to keep before running this command.
+> The `terraform destroy` command will delete all created AWS resources. Make sure you don't have any data you want to keep before running it.
 
 ## 📂 Project Structure
 
@@ -90,19 +90,20 @@ aws-terraform-sandbox/
 This sandbox creates the following AWS resources:
 
 - VPC
-- Public subnet
+- Public Subnet
 - Internet Gateway
 - Route Table
 - Security Group
-- EC2 instance (hosts the Streamlit application)
+- EC2 Instance (hosting the Streamlit application)
 - Elastic IP
 
-## 📝 Update Information
+## 📝 Changelog
 
-- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : Adjusted the header image generation algorithm
-- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : Improved the organization of the setup scripts
+- 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : Improved documentation and styling changes
+- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : Adjusted header image generation algorithm
+- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : Refine maintenance scripts
 
-## 🤝 Contributions
+## 🤝 Contributing
 
 1. Fork this repository.
 2. Create a new branch (e.g., `git checkout -b feature/amazing-feature`).
@@ -112,7 +113,7 @@ This sandbox creates the following AWS resources:
 
 ## 📄 License
 
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more information.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgements
 
@@ -123,3 +124,4 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 ---
 
 Developer: [Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
+</readme>
