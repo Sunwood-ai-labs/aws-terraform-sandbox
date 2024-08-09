@@ -97,6 +97,7 @@ aws-terraform-sandbox/
 
 ## 📝 更新情報
 
+- 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : ドキュメントの改善とスタイルの変更
 - 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : ヘッダー画像生成アルゴリズムの調整
 - [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : 整備化スクリプトの整備
 
@@ -121,3 +122,4 @@ aws-terraform-sandbox/
 ---
 
 開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
+</readme>
