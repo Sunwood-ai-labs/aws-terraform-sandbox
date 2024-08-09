@@ -75,13 +75,8 @@
 aws-terraform-sandbox/
 ├─ sandbox/
 │  ├─ s01_streamlit_aws_setup/
-│  │  ├─ streamlit_aws_setup.tf
-│  │  ├─ terraform.tfstate
 │  ├─ s02_streamlit_aws_deployer/
-│  │  ├─ variables.tf
-│  │  ├─ main.tf
-│  │  ├─ terraform.tfvars
-│  │  ├─ terraform.tfstate
+│  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
 ├─ issue_creator.log
@@ -90,34 +85,13 @@ aws-terraform-sandbox/
 
 ## 🛠 サンドボックス環境
 
-### s01_streamlit_aws_setup
+このリポジトリには、以下のサンドボックス環境が含まれています：
 
-このサンドボックスでは、以下のAWSリソースを作成します：
+1. **s01_streamlit_aws_setup**: 基本的なStreamlitアプリケーションをデプロイするためのAWSインフラストラクチャをセットアップします。
 
-- VPC
-- パブリックサブネット
-- インターネットゲートウェイ
-- ルートテーブル
-- セキュリティグループ
-- EC2インスタンス（Streamlitアプリケーションをホスト）
-- Elastic IP
+2. **s02_streamlit_aws_deployer**: より高度な設定でStreamlitアプリケーションをデプロイし、自動的な起動/停止スケジュールを含むAWSインフラストラクチャをセットアップします。
 
-### s02_streamlit_aws_deployer
-
-このサンドボックスでは、以下のAWSリソースを作成します：
-
-- VPC
-- パブリックサブネット
-- インターネットゲートウェイ
-- ルートテーブル
-- セキュリティグループ
-- EC2インスタンス（Streamlitアプリケーションをホスト）
-- Elastic IP
-- CloudWatchイベントルール（インスタンスの起動/停止）
-- IAMロール（EC2インスタンス用、CloudWatchイベント用）
-- IAMポリシー（EC2インスタンス用）
-- IAMインスタンスプロファイル
-- セッションマネージャーの設定
+各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
@@ -151,4 +125,3 @@ aws-terraform-sandbox/
 ---
 
 開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
-</readme>
