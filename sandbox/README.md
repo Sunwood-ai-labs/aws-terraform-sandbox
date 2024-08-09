@@ -1,4 +1,4 @@
-![](../docs/USAGE.png)
+![](https://raw.githubusercontent.com/Sunwood-ai-labs/aws-terraform-sandbox/main/docs/USAGE.png)
 
 # 🏖️ aws-terraform-sandbox サンドボックス環境
 
@@ -102,6 +102,11 @@ host i-* mi-*
 
 ```bash
 ssh -i "path/to/your/key.pem" ubuntu@i-1234567890abcdef0
+```
+ 
+例：
+```bash
+ssh -i "C:\Users\makim\.ssh\streamlit-terraform-keypair-tokyo-PEM.pem" ubuntu@i-0072dc723bbaca57b 
 ```
 
 ### 2. 直接SSH接続
