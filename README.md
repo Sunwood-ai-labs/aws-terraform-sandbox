@@ -50,7 +50,7 @@
 
 ## 📝 更新情報
 
-（更新情報があればここに記述する）
+- 🎉 v1.0.0 リリース 🎉  ![v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0)
 
 ## 🤝 コントリビューション
 
@@ -62,5 +62,4 @@
 
 ## 🙏 謝辞
 
-（謝辞を記述する） 
-
+（謝辞を記述する）
