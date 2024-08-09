@@ -50,7 +50,7 @@
 
 ## 📝 更新情報
 
-- 🎉 v1.0.0 リリース 🎉  ![v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0)
+- 🎉 [v1.0.0 リリース](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) 🎉
 
 ## 🤝 コントリビューション
 
