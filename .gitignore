@@ -169,3 +169,4 @@ tmp2.md
 .terraform.lock.hcl
 terraform.tfstate.backup
 poetry.lock
+.terraform
