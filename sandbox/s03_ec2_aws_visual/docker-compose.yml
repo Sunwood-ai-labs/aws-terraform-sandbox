@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  terraform-visualizer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    tty: true
