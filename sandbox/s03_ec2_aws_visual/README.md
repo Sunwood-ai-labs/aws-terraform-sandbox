@@ -53,21 +53,41 @@
  terraform destroy
  ```
 
-## 🤖 AWS構成図の自動生成
 
-`aws_terraform_visualizer3.py`スクリプトは、LLM（大規模言語モデル）を使用して自動生成されています。生成プロセスは以下の通りです：
+## 🤖 生成AIを活用したAWS構成図の自動生成
 
-1. Claude 3.5 Sonnetなどのモデルに以下の情報をプロンプトとして入力：
-   - `main.tf`ファイルの内容
-   - `terraform.tfstate`ファイルの内容
-   - https://diagrams.mingrammer.com/docs/nodes/aws のURL
+このサンドボックス環境には、生成AIを活用してAWS構成図を自動生成するための新機能が追加されました。
 
-2. 生成されたスクリプトを`aws_terraform_visualizer3.py`として保存
+### terraform_vis_prompt_generator.py
 
-3. スクリプトを実行して構成図を生成
+このスクリプトは以下の機能を提供します：
 
-> [!WARNING]
-> 注意：生成された構成図はあくまで参考程度です。実際のインフラストラクチャとの違いがある可能性があるため、必ず人間による確認が必要です。
+1. 必要なファイルの読み込み（Terraformの設定ファイル、状態ファイルなど）
+2. AWS Diagramsライブラリのドキュメントのスクレイピング
+3. 読み込んだ情報を元に、生成AIのためのプロンプトを作成
+4. 作成したプロンプトをMarkdownファイルとして保存
+
+#### 使用方法：
+
+1. 以下のコマンドを実行してプロンプトを生成します：
+   ```
+   python terraform_vis_prompt_generator.py
+   ```
+
+2. 生成されたプロンプト（terraform_visualization_prompt.md）を、Claude 3.5 Sonnetなどの生成AIモデルに入力します。
+
+3. 生成AIが作成したPythonスクリプトを `aws_terraform_visualizer3.py` として保存します。
+
+4. 以下のコマンドを実行して構成図を生成します：
+   ```
+   python aws_terraform_visualizer3.py
+   ```
+
+この機能により、Terraformの設定に基づいて最新のAWS構成図を簡単に生成できます。構成の変更があった場合も、このプロセスを繰り返すことで、常に最新の構成図を維持することができます。
+
+> [!NOTE]
+> 生成AIを使用する際は、出力結果を必ず確認し、必要に応じて修正を加えてください。生成されたスクリプトがプロジェクトの要件を満たしていることを確認することが重要です。
+
 
 ## ⚠️ 注意事項
 
