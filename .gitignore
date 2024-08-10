@@ -175,3 +175,5 @@ sandbox/**/**/terraform.tfstate
 sandbox/s02_streamlit_aws_deployer/plan.json
 sandbox/s02_streamlit_aws_deployer/plan.out
 sandbox/s02_streamlit_aws_deployer/README2.md
+sandbox/s03_ec2_aws_visual/terraform_visualization_prompt.md
+diagrams_docs.html
