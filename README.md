@@ -99,6 +99,7 @@ aws-terraform-sandbox/
 
 ## 📝 更新情報
 
+- 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0) : Streamlitアプリデプロイヤーのセキュリティ強化とドキュメント改善
 - 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0) : StreamlitアプリのデプロイメントのためのTerraform設定を追加
 - 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : ドキュメントの改善とスタイルの変更
 - 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : ヘッダー画像生成アルゴリズムの調整

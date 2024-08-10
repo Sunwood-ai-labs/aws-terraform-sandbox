@@ -171,4 +171,7 @@ terraform.tfstate.backup
 poetry.lock
 .terraform
 sandbox/s02_streamlit_aws_deployer/terraform.tfstate
-sandbox/s02_streamlit_aws_deployer/terraform.tfstate
+sandbox/**/**/terraform.tfstate
+sandbox/s02_streamlit_aws_deployer/plan.json
+sandbox/s02_streamlit_aws_deployer/plan.out
+sandbox/s02_streamlit_aws_deployer/README2.md
