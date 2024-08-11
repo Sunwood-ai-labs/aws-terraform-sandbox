@@ -81,11 +81,22 @@ aws-terraform-sandbox/
 │  ├─ s01_streamlit_aws_setup/
 │  ├─ s02_streamlit_aws_deployer/
 │  ├─ s03_ec2_aws_visual/
+│  ├─ s04_simple_lambda/
+│  │  ├─ lambda/
+│  │  │  ├─ test/
+│  │  │  │  ├─ src/
+│  │  │  │  │  ├─ test_terraform.py
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
+│  │  ├─ client.py
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
 ├─ issue_creator.log
 ├─ README.md
+├─ pyproject.toml
 ```
 
 ## 🛠 サンドボックス環境
@@ -100,10 +111,13 @@ aws-terraform-sandbox/
     - 🎉 **EC2 インスタンスとその関連リソースの可視化機能**
     - 🎉 **生成AI を活用した AWS 構成図の自動生成機能**
 
+4. **s04_simple_lambda**: シンプルなLambda関数のデプロイと管理のためのサンドボックス環境を追加しました。
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0) : シンプルなLambda関数のデプロイと管理のためのサンドボックス環境を追加しました。 🟢
 - 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : EC2インスタンスとその関連リソースの可視化機能、生成AI を活用した AWS 構成図の自動生成機能を追加しました 🟢
 - 🎉 [v1.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.4.0) : EC2 AWS Visual Sandboxを追加 🟢
 - 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0) : Streamlitアプリデプロイヤーのセキュリティ強化とドキュメント改善
