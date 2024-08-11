@@ -80,6 +80,7 @@ aws-terraform-sandbox/
 ├─ sandbox/
 │  ├─ s01_streamlit_aws_setup/
 │  ├─ s02_streamlit_aws_deployer/
+│  ├─ s03_ec2_aws_visual/
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -95,10 +96,16 @@ aws-terraform-sandbox/
 
 2. **s02_streamlit_aws_deployer**: より高度な設定でStreamlitアプリケーションをデプロイし、自動的な起動/停止スケジュールを含むAWSインフラストラクチャをセットアップします。
 
+3. **s03_ec2_aws_visual**: EC2インスタンスとその関連リソース（VPC、サブネット、セキュリティグループなど）を作成し、視覚的に表示するためのツールを提供します。
+    - 🎉 **EC2 インスタンスとその関連リソースの可視化機能**
+    - 🎉 **生成AI を活用した AWS 構成図の自動生成機能**
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : EC2インスタンスとその関連リソースの可視化機能、生成AI を活用した AWS 構成図の自動生成機能を追加しました 🟢
+- 🎉 [v1.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.4.0) : EC2 AWS Visual Sandboxを追加 🟢
 - 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0) : Streamlitアプリデプロイヤーのセキュリティ強化とドキュメント改善
 - 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0) : StreamlitアプリのデプロイメントのためのTerraform設定を追加
 - 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : ドキュメントの改善とスタイルの変更
@@ -130,3 +137,4 @@ aws-terraform-sandbox/
 ---
 
 開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
+</readme>
