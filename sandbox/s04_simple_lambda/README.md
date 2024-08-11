@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/Sunwood-ai-labs/aws-terraform-sandbox/main/docs/USAGE_02.png)
+
 # s04_simple_lambda
 
 このプロジェクトは、AWS Lambda関数をTerraformを使用してデプロイするためのシンプルな例を提供します。
