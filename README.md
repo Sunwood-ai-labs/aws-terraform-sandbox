@@ -1,3 +1,4 @@
+<readme>
 <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/aws-terraform-sandbox.png" width="100%">
 <br>
@@ -91,6 +92,16 @@ aws-terraform-sandbox/
 │  │  ├─ README.md
 │  │  ├─ terraform.tfvars
 │  │  ├─ client.py
+│  ├─ s05_api_lambda/
+│  │  ├─ lambda/
+│  │  │  ├─ test/
+│  │  │  │  ├─ src/
+│  │  │  │  │  ├─ test_terraform.py
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
+│  │  ├─ client.py
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -113,10 +124,13 @@ aws-terraform-sandbox/
 
 4. **s04_simple_lambda**: シンプルなLambda関数のデプロイと管理のためのサンドボックス環境を追加しました。
 
+5. **s05_api_lambda**: API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境を追加しました。
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境である`s05_api_lambda`サンドボックス環境を追加 🟢
 - 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0) : シンプルなLambda関数のデプロイと管理のためのサンドボックス環境を追加しました。 🟢
 - 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : EC2インスタンスとその関連リソースの可視化機能、生成AI を活用した AWS 構成図の自動生成機能を追加しました 🟢
 - 🎉 [v1.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.4.0) : EC2 AWS Visual Sandboxを追加 🟢
