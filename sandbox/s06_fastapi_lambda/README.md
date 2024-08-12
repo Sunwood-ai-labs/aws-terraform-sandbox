@@ -1,84 +1,156 @@
+![](https://raw.githubusercontent.com/Sunwood-ai-labs/aws-terraform-sandbox/main/docs/USAGE_04.png)
 
+# 🚀 s06_fastapi_lambda
 
+このサンドボックス環境は、FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイするためのTerraform設定を提供します。
 
-## 事前準備
+## 🎯 プロジェクトの目的
 
-docker build -t fastapi-lambda .
+- FastAPIを使用したサーバーレスAPIの構築方法を示す
+- AWS LambdaとAmazon API Gatewayを使用したデプロイメントプロセスを学ぶ
+- Dockerコンテナを使用したLambda関数のパッケージングと展開を理解する
+- API KeyとUsage Planを使用したAPIのセキュリティと使用量制御を実装する
 
+## 🚀 セットアップ手順
 
-## マニュアルで実行する場合
+1. 必要な依存関係をインストールします：
+   - Terraform
+   - AWS CLI
+   - Docker
+   - Python 3.9以上
 
+2. AWS CLIの設定を行います：
 ```bash
-
-
-docker build -t fastapi-lambda .
-
-docker run -p 9000:8080 fastapi-lambda
-
-api_gateway_url = "https://skjnkewzwl.execute-api.ap-northeast-1.amazonaws.com/dev"
-ecr_repository_url = "498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambda-repo"
-lambda_function_name = "fastapi-lambda-function"
-
-
-aws configure list
-
-aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
-
-
-docker tag fastapi-lambda:latest 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambda-repo:latest
-
-
-aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
-
+aws configure
 ```
 
-## 一括コマンド
+3. このディレクトリに移動します：
+```bash
+cd s06_fastapi_lambda
+```
 
-terraform destroy -auto-approve & terraform init & terraform apply -auto-approve
+4. Dockerイメージをビルドします：
+```bash
+docker build -t fastapi-lambda .
+```
 
-# ECRリポジトリへのログインと認証手順
+5. Terraformの初期化を行います：
+```bash
+terraform init
+```
 
-＊ここはTerraform自動化されています
+6. Terraformプランを確認します：
+```bash
+terraform plan
+```
 
-1. まず、AWS CLIが正しく設定されていることを確認します：
-   ```
-   aws configure list
-   ```
-   正しいAWSアカウントIDとリージョンが設定されていることを確認してください。
+7. インフラストラクチャをデプロイします：
+```bash
+terraform apply
+```
 
-2. 次に、ECRリポジトリへのログインコマンドを実行します：
-   ```
-   aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
-   ```
-   このコマンドが成功すると、"Login Succeeded" というメッセージが表示されるはずです。
+## 📁 ファイル構造
 
+- `main.tf`: Terraformのメイン設定ファイル
+- `variables.tf`: 変数定義ファイル
+- `terraform.tfvars`: 変数値設定ファイル
+- `app.py`: FastAPIアプリケーションのソースコード
+- `Dockerfile`: Lambda関数用のDockerイメージ設定
+- `requirements.txt`: Pythonの依存関係リスト
+- `lambda_tester_api.py`: デプロイされたAPIをテストするスクリプト
+- `lambda_tester_local.py`: ローカルでLambda関数をテストするスクリプト
+
+## 🖥️ 使用方法
+
+### Terraformを使用した自動デプロイ
+
+1. APIのデプロイ:
+```bash
+terraform apply
+```
+
+2. APIテストスクリプトの実行:
+```bash
+python lambda_tester_api.py
+```
+
+3. リソースの削除:
+```bash
+terraform destroy
+```
+
+### マニュアルでの実行手順
+
+1. Dockerイメージのビルド:
+```bash
+docker build -t fastapi-lambda .
+```
+
+2. ローカルでのDockerコンテナ実行:
+```bash
+docker run -p 9000:8080 fastapi-lambda
+```
+
+3. ECRリポジトリへのログインとイメージのプッシュ:
+```bash
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
+docker tag fastapi-lambda:latest 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambda-repo:latest
+docker push 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambda-repo:latest
+```
+
+### ECRリポジトリへのログインと認証手順
+
+注意: これらの手順はTerraformによって自動化されていますが、問題が発生した場合に手動で実行することができます。
+
+1. AWS CLIの設定を確認:
+```bash
+aws configure list
+```
+
+2. ECRリポジトリへのログイン:
+```bash
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
+```
+
+3. ECRリポジトリの作成（必要な場合）:
+```bash
 aws ecr create-repository --repository-name fastapi-lambda-repo --region ap-northeast-1
+```
 
+4. イメージのプッシュ:
+```bash
+docker push 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambda-repo:latest
+```
 
-3. ログインに成功したら、再度イメージをプッシュしてみてください：
-   ```
-   docker push 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambda-repo:latest
-   ```
+5. ECRリポジトリのイメージ確認:
+```bash
+aws ecr list-images --repository-name fastapi-lambda-repo
+```
 
-4. プッシュが成功したら、ECRリポジトリのイメージを確認します：
-   ```
-   aws ecr list-images --repository-name fastapi-lambda-repo
-   ```
-terraform import aws_ecr_repository.fastapi-lambda-repo fastapi-lambda-repo
+## 🛠️ カスタマイズ
 
-5. すべてが正常に完了したら、Terraformを再度適用します：
-   ```
-   terraform apply
-   ```
+`terraform.tfvars`ファイルを編集することで、以下の設定をカスタマイズできます：
 
-注意: もし上記の手順でもログインできない場合は、以下を確認してください：
-- AWS CLIの認証情報が正しく設定されているか
-- 使用しているIAMユーザーまたはロールがECRへのプッシュ権限を持っているか
-- AWSアカウントIDが正しいか（498218886114が正しいことを確認）
+- `aws_region`: デプロイするAWSリージョン
+- `lambda_function_name`: Lambda関数の名前
+- `stage`: デプロイメントステージ（例: dev, prod）
 
+## 📝 注意事項
 
+- このプロジェクトは学習と実験を目的としています。本番環境での使用には適していません。
+- AWSリソースの使用には料金が発生する可能性があります。使用後は必ずリソースを削除してください。
+- API Keyの管理には十分注意してください。誤って公開されないようにしてください。
 
-## lambdaのテストjson
+## 🔧 トラブルシューティング
+
+- ECRログインに問題がある場合は、以下を確認してください：
+  - AWS CLIの認証情報が正しく設定されているか
+  - 使用しているIAMユーザーまたはロールがECRへのプッシュ権限を持っているか
+  - AWSアカウントIDが正しいか（498218886114が正しいことを確認）
+
+## 📊 Lambdaのテスト
+
+Lambdaをテストする際は、以下のようなJSONペイロードを使用できます：
 
 ```json
 {
@@ -117,3 +189,7 @@ terraform import aws_ecr_repository.fastapi-lambda-repo fastapi-lambda-repo
   "isBase64Encoded": false
 }
 ```
+
+## 🤝 貢献
+
+バグの報告や機能の提案は、GitHubのIssueを通じて行ってください。プルリクエストも歓迎します！
