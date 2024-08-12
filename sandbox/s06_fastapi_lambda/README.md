@@ -1,4 +1,13 @@
 
+
+
+## 事前準備
+
+docker build -t fastapi-lambda .
+
+
+## マニュアルで実行する場合
+
 ```bash
 
 
@@ -19,13 +28,17 @@ aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS
 docker tag fastapi-lambda:latest 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambda-repo:latest
 
 
-
+aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
 
 ```
 
+## 一括コマンド
 
+terraform destroy -auto-approve & terraform init & terraform apply -auto-approve
 
 # ECRリポジトリへのログインと認証手順
+
+＊ここはTerraform自動化されています
 
 1. まず、AWS CLIが正しく設定されていることを確認します：
    ```
@@ -63,6 +76,9 @@ terraform import aws_ecr_repository.fastapi-lambda-repo fastapi-lambda-repo
 - 使用しているIAMユーザーまたはロールがECRへのプッシュ権限を持っているか
 - AWSアカウントIDが正しいか（498218886114が正しいことを確認）
 
+
+
+## lambdaのテストjson
 
 ```json
 {

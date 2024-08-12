@@ -1,0 +1,10 @@
+.SourceSageAssets
+.terraform
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.git
+.vscode
+*.md
+tests/
