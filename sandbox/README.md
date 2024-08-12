@@ -56,6 +56,17 @@ API GatewayとLambda関数を組み合わせたサーバーレスAPIのデプロ
 - 📊 CloudWatch Logsによるモニタリング
 - 🖥️ APIをテストするためのクライアントスクリプト
 
+### 🚀 s06_fastapi_lambda
+
+FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイする環境を提供します。
+
+主な特徴：
+- 🐍 FastAPIフレームワークを使用したAPIの構築
+- 🐳 Dockerコンテナを使用したLambda関数のデプロイ
+- 🔑 API Keyを使用したセキュリティ設定
+- 📊 使用量プランによるAPI使用の制御
+- 🖥️ ローカルテストとAPI呼び出し用のPythonスクリプト
+
 ## 📚 使用方法
 
 各サンドボックス環境を使用するには、以下の手順に従ってください：
