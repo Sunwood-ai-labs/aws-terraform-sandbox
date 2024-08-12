@@ -102,6 +102,16 @@ aws-terraform-sandbox/
 │  │  ├─ README.md
 │  │  ├─ terraform.tfvars
 │  │  ├─ client.py
+│  ├─ s06_fastapi_lambda/
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ Dockerfile
+│  │  ├─ lambda_tester_api.py
+│  │  ├─ terraform.tfvars
+│  │  ├─ requirements.txt
+│  │  ├─ app.py
+│  │  ├─ lambda_tester_local.py
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -126,10 +136,18 @@ aws-terraform-sandbox/
 
 5. **s05_api_lambda**: API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境を追加しました。
 
+6. **s06_fastapi_lambda**: FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイする環境を提供します。
+    - 🎉 **FastAPIサーバーレスAPIサンドボックス環境を追加** 🟢
+    - 🎉 **ローカルからのLambda関数呼び出し機能を追加** 🟢
+    - 🚀 **Terraform スクリプトに変数を導入** 🟢
+    - 🚀 **Lambda 関数を呼び出すための Python スクリプトを追加** 🟢
+    - 🚀 **API Gateway の URL を使用して Lambda 関数を呼び出すように変更** 🟢
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0) : FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイする環境を提供します。 🟢
 - 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境である`s05_api_lambda`サンドボックス環境を追加 🟢
 - 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0) : シンプルなLambda関数のデプロイと管理のためのサンドボックス環境を追加しました。 🟢
 - 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : EC2インスタンスとその関連リソースの可視化機能、生成AI を活用した AWS 構成図の自動生成機能を追加しました 🟢
@@ -166,3 +184,4 @@ aws-terraform-sandbox/
 
 開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
 </readme>
+```
