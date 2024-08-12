@@ -8,7 +8,7 @@ console = Console()
 
 def invoke_local_lambda(path, http_method="GET"):
     # url = "http://localhost:9000/2015-03-31/functions/function/invocations"
-    url = "https://y11d6hkjw8.execute-api.ap-northeast-1.amazonaws.com/dev"
+    url = "https://a1ffehx0ll.execute-api.ap-northeast-1.amazonaws.com/dev"
     payload = {
         "resource": "/{proxy+}",
         "path": path,
