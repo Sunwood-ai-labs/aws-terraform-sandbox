@@ -31,18 +31,18 @@
 </p>
 
 >[!IMPORTANT]
-> This repository's release notes, README, and commit messages are mostly generated using [claude.ai](https://claude.ai/), [ChatGPT4](https://chatgpt.com/) and [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
+>This repository's release notes, README, and commit messages are primarily generated using [claude.ai](https://claude.ai/) and [ChatGPT4](https://chatgpt.com/) through our tools, [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), and [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
 
-## 🌟 Introduction
+## 🌟 Getting Started
 
-**aws-terraform-sandbox** is an experimental platform for automating and managing AWS cloud infrastructure using Terraform. This repository aims to learn by building cloud infrastructure through trial and error using Terraform scripts created with the help of generative AI.
+**aws-terraform-sandbox** is an experimental platform designed for automating and managing cloud infrastructure using Terraform within the AWS cloud environment. This repository aims to leverage generative AI to create Terraform scripts and learn through experimentation in building cloud infrastructure. 
 
-It provides scripts that allow you to safely experiment with real AWS environments using various Terraform templates and scripts. It also includes guidelines for designing and implementing infrastructure using generative AI.
+It offers various Terraform templates and scripts, enabling you to safely experiment with real AWS environments. Additionally, guidelines are included for utilizing generative AI to design and implement cloud infrastructure.
 
 ## 🚀 Getting Started
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone https://github.com/Sunwood-ai-labs/aws-terraform-sandbox.git
    cd aws-terraform-sandbox
    ```
@@ -52,28 +52,28 @@ It provides scripts that allow you to safely experiment with real AWS environmen
 3. Install [Terraform](https://developer.hashicorp.com/terraform/install).
 
 4. Navigate to the desired sandbox environment:
-   ```
+   ```bash
    cd sandbox/s01_streamlit_aws_setup
    ```
 
 5. Initialize and run Terraform:
-   ```
+   ```bash
    terraform init
    terraform apply
    ```
 
-6. When prompted, type `yes` to confirm.
+6. When prompted, enter `yes` to confirm.
 
-7. After deployment is complete, access the outputted public IP address to check the Streamlit application.
+7. After deployment, access the provided public IP address to check the Streamlit application.
 
-8. When finished, be sure to delete the resources by running the following command:
-   ```
+8. When finished, be sure to destroy the resources using:
+   ```bash
    terraform destroy
    ```
-   Type `yes` when prompted for confirmation.
+   Enter `yes` when prompted for confirmation.
 
 > [!WARNING]
-> The `terraform destroy` command will delete all the AWS resources you created. Before running it, make sure you have no data you want to keep.
+> The `terraform destroy` command will delete all AWS resources you created. Ensure that there is no data you wish to retain before executing it.
 
 ## 📂 Project Structure
 
@@ -103,6 +103,16 @@ aws-terraform-sandbox/
 │  │  ├─ README.md
 │  │  ├─ terraform.tfvars
 │  │  ├─ client.py
+│  ├─ s06_fastapi_lambda/
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ Dockerfile
+│  │  ├─ lambda_tester_api.py
+│  │  ├─ terraform.tfvars
+│  │  ├─ requirements.txt
+│  │  ├─ app.py
+│  │  ├─ lambda_tester_local.py
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -115,35 +125,43 @@ aws-terraform-sandbox/
 
 This repository includes the following sandbox environments:
 
-1. **s01_streamlit_aws_setup**: Sets up AWS infrastructure to deploy a basic Streamlit application.
+1. **s01_streamlit_aws_setup**: Sets up an AWS infrastructure for deploying a basic Streamlit application.
 
-2. **s02_streamlit_aws_deployer**: Deploys a Streamlit application with more advanced settings, setting up AWS infrastructure including automatic start/stop schedules.
+2. **s02_streamlit_aws_deployer**: Deploys a Streamlit application with more advanced settings, including automated start/stop scheduling within the AWS infrastructure.
 
-3. **s03_ec2_aws_visual**: Creates an EC2 instance and its related resources (VPC, subnet, security group, etc.) and provides tools to visualize them.
-    - 🎉 **EC2 Instance and Related Resource Visualization Features**
-    - 🎉 **Automatic generation of AWS configuration diagrams using generative AI**
+3. **s03_ec2_aws_visual**: Creates an EC2 instance with its associated resources (VPC, subnets, security groups, etc.) and provides tools for visualizing them.
+    - 🎉 **EC2 instance and related resources visualization features**
+    - 🎉 **Automatic AWS diagram generation using generative AI**
 
-4. **s04_simple_lambda**: Added a sandbox environment for deploying and managing simple Lambda functions.
+4. **s04_simple_lambda**: A sandbox environment added for deploying and managing simple Lambda functions.
 
 5. **s05_api_lambda**: Added a deployment environment for serverless APIs integrating API Gateway and Lambda functions.
 
-For more details on each sandbox environment, please refer to [sandbox/README.md](sandbox/README.md).
+6. **s06_fastapi_lambda**: Provides an environment for deploying FastAPI using AWS Lambda and API Gateway.
+    - 🎉 **Added a FastAPI serverless API sandbox environment** 🟢
+    - 🎉 **Added the ability to invoke Lambda functions locally** 🟢
+    - 🚀 **Introduced variables into Terraform scripts** 🟢
+    - 🚀 **Added a Python script for invoking Lambda functions** 🟢
+    - 🚀 **Changed to invoke Lambda functions using the API Gateway URL** 🟢
 
-## 📝 Updates
+For more details on each sandbox environment, refer to [sandbox/README.md](sandbox/README.md).
 
-- 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : Added `s05_api_lambda` sandbox environment, a serverless API deployment environment integrating API Gateway and Lambda functions. 🟢
+## 📝 Update Information
+
+- 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0) : Provides an environment for deploying FastAPI using AWS Lambda and API Gateway. 🟢
+- 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : Added the `s05_api_lambda` sandbox environment, which is a deployment environment for serverless APIs integrating API Gateway and Lambda functions 🟢
 - 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0) : Added a sandbox environment for deploying and managing simple Lambda functions. 🟢
-- 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : Added EC2 instance and related resource visualization features, as well as automatic generation of AWS configuration diagrams using generative AI. 🟢
+- 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : Added EC2 instance and related resources visualization features, as well as automatic AWS diagram generation using generative AI 🟢
 - 🎉 [v1.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.4.0) : Added EC2 AWS Visual Sandbox 🟢
-- 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0) : Security enhancements and documentation improvements for the Streamlit app deployer
-- 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0) : Added Terraform configuration for deploying Streamlit applications
-- 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : Documentation improvements and style changes
-- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : Adjustment of the header image generation algorithm
-- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : Organization of the organization script
+- 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0) : Enhanced security for the Streamlit app deployer and improved documentation
+- 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0) : Added Terraform configuration for Streamlit app deployment
+- 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : Improved documentation and style changes
+- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : Adjusted the header image generation algorithm
+- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : Organized the cleanup scripts
 
-## 🤖 Generative AI Utilization
+## 🤖 Generative AI Usage
 
-This repository uses generative AI to create Terraform scripts. The requirements definition for using generative AI to design and implement infrastructure is available at [docs/REQUIREMENTS_DEFINITION.md](docs/REQUIREMENTS_DEFINITION.md). By referring to this document, you can learn how to effectively use generative AI to build AWS resources.
+This repository leverages generative AI to create Terraform scripts. The requirements definition document for using generative AI to design and implement infrastructure is located at [docs/REQUIREMENTS_DEFINITION.md](docs/REQUIREMENTS_DEFINITION.md). By referring to this document, you can learn how to effectively utilize generative AI for building AWS resources.
 
 ## 🤝 Contributions
 
@@ -155,7 +173,7 @@ This repository uses generative AI to create Terraform scripts. The requirements
 
 ## 📄 License
 
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for details.
+This project is released under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgements
 
@@ -167,3 +185,4 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 
 Developer: [Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
 </readme>
+```
