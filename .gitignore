@@ -179,3 +179,4 @@ sandbox/s03_ec2_aws_visual/terraform_visualization_prompt.md
 diagrams_docs.html
 sandbox/s04_lambda/.terraform.tfstate.lock.info
 sandbox/s04_lambda/lambda/test/src/test_terraform.zip
+sandbox/s07_simple_sso/terraform.tfvars
