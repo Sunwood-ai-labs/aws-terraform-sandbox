@@ -117,6 +117,11 @@ aws-terraform-sandbox/
 │  │  ├─ variables.tf
 │  │  ├─ main.tf
 │  │  ├─ README.md
+│  ├─ s08_ec2_docker/
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -154,10 +159,19 @@ aws-terraform-sandbox/
     - `main.tf`ではS3バケットの作成とタグの適用を行っています。
     - `README.md`には環境の使用方法や設定方法が記載されています。
 
+8. **s08_ec2_docker**: AWS EC2インスタンス上にDocker環境を構築するためのサンドボックス環境を追加しました。
+    - 🎉 **`s08_ec2_docker` サンドボックス環境を追加** 🟢
+    - EC2 インスタンス上にDockerとDocker Composeを自動インストールするためのTerraform設定を提供します。
+    - プライベートサブネットとNAT Gatewayを使用したセキュアなネットワーク設定を提供します。
+    - Systems ManagerによるEC2インスタンスへのセキュアなアクセスを提供します。
+    - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
+    - `terraform.tfvars`で環境設定をカスタマイズできます。
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v1.10.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.10.0) : AWS EC2インスタンス上にDocker環境を構築するための`s08_ec2_docker`サンドボックス環境を追加 🟢
 - 🎉 [v1.9.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.9.1) : SSOユーザーによるS3バケットの作成とアクセス管理をより簡単に実現するための`s07_simple_sso`サンドボックス環境を追加 🟢
 - 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0) : FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイする環境を提供します。 🟢
 - 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境である`s05_api_lambda`サンドボックス環境を追加 🟢
