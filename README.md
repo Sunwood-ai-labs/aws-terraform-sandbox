@@ -112,6 +112,11 @@ aws-terraform-sandbox/
 │  │  ├─ requirements.txt
 │  │  ├─ app.py
 │  │  ├─ lambda_tester_local.py
+│  ├─ s07_simple_sso/
+│  │  ├─ terraform.example.tfvars
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -143,10 +148,17 @@ aws-terraform-sandbox/
     - 🚀 **Lambda 関数を呼び出すための Python スクリプトを追加** 🟢
     - 🚀 **API Gateway の URL を使用して Lambda 関数を呼び出すように変更** 🟢
 
+7. **s07_simple_sso**: SSOユーザーによるS3バケットの作成とアクセス管理をより簡単に実現するためのサンドボックス環境を追加 🟢
+    - `variables.tf`でS3バケットの名前のプレフィックスやタグをカスタマイズできます。
+    - `terraform.tfvars.example`には設定例が用意されています。
+    - `main.tf`ではS3バケットの作成とタグの適用を行っています。
+    - `README.md`には環境の使用方法や設定方法が記載されています。
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v1.9.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.9.1) : SSOユーザーによるS3バケットの作成とアクセス管理をより簡単に実現するための`s07_simple_sso`サンドボックス環境を追加 🟢
 - 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0) : FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイする環境を提供します。 🟢
 - 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境である`s05_api_lambda`サンドボックス環境を追加 🟢
 - 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0) : シンプルなLambda関数のデプロイと管理のためのサンドボックス環境を追加しました。 🟢
