@@ -1,4 +1,3 @@
-<readme>
 <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/aws-terraform-sandbox.png" width="100%">
 <br>
@@ -117,6 +116,45 @@ aws-terraform-sandbox/
 │  │  ├─ variables.tf
 │  │  ├─ main.tf
 │  │  ├─ README.md
+│  ├─ s08_ec2_docker/
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
+│  ├─ s09-ec2-docker-moa/
+│  │  ├─ variables.tf
+│  │  ├─ setup_script.sh
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
+│  ├─ s10-docker-ec2-scheduler-moa/
+│  │  ├─ scripts/
+│  │  │  ├─ setup_script.sh
+│  │  ├─ modules/
+│  │  │  ├─ networking/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ main.tf
+│  │  │  ├─ compute/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ main.tf
+│  │  │  ├─ iam/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ main.tf
+│  │  ├─ variables.tf
+│  │  ├─ outputs.tf
+│  │  ├─ main.tf
+│  │  ├─ providers.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
+│  ├─ s11_streamlit-fargate/
+│  │  ├─ app.py
+│  │  ├─ Dockerfile
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ requirements.txt
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -153,6 +191,36 @@ aws-terraform-sandbox/
     - `terraform.tfvars.example`には設定例が用意されています。
     - `main.tf`ではS3バケットの作成とタグの適用を行っています。
     - `README.md`には環境の使用方法や設定方法が記載されています。
+
+8. **s08_ec2_docker**: AWS EC2インスタンス上にDocker環境を構築するためのサンドボックス環境を追加しました。
+    - 🎉 **`s08_ec2_docker` サンドボックス環境を追加** 🟢
+    - EC2 インスタンス上にDockerとDocker Composeを自動インストールするためのTerraform設定を提供します。
+    - プライベートサブネットとNAT Gatewayを使用したセキュアなネットワーク設定を提供します。
+    - Systems ManagerによるEC2インスタンスへのセキュアなアクセスを提供します。
+    - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
+    - `terraform.tfvars`で環境設定をカスタマイズできます。
+
+9. **s09-ec2-docker-moa**: AWS EC2 インスタンス上に Docker 環境と MOA プロジェクトをデプロイするためのサンドボックス環境を追加しました。
+    - 🎉 **`s09-ec2-docker-moa` サンドボックス環境を追加** 🟢
+    - EC2 インスタンス上にDockerとDocker Composeを自動的にインストールして、MOA プロジェクトをセットアップします。
+    - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
+    - `terraform.tfvars`で環境設定をカスタマイズできます。
+
+10. **s10-docker-ec2-scheduler-moa**: AWS EC2 インスタンス上に MOA プロジェクトをデプロイし、スケジュールされた開始・停止時間を設定するためのサンドボックス環境を追加しました。
+    - 🎉 **`s10-docker-ec2-scheduler-moa` サンドボックス環境を追加** 🟢
+    - DockerとMOAがプリインストールされたEC2インスタンスを自動的にデプロイします。
+    - EC2 インスタンスを自動的に開始・停止するスケジューラーを実装します。
+    - AWS BedrockやCloud AIサービスを簡単に試せるようにします。
+    - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
+    - `terraform.tfvars`で環境設定をカスタマイズできます。
+
+11. **s11_streamlit-fargate**: AWS Fargate上でStreamlitアプリケーションをデプロイするための環境を提供します。
+    - 🎉 **`s11_streamlit-fargate` サンドボックス環境を追加** 🟢
+    - Dockerを使用してStreamlitアプリケーションをコンテナ化します。
+    - AWS Fargate上にコンテナをデプロイし、スケーラブルな環境を構築します。
+    - Application Load Balancerを使用してトラフィックを分散します。
+    - VPCとセキュリティグループを使用してセキュアなネットワーク設定を提供します。
+    - ECSクラスターとタスク定義の自動セットアップを行います。
 
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
@@ -195,5 +263,3 @@ aws-terraform-sandbox/
 ---
 
 開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
-</readme>
-```
