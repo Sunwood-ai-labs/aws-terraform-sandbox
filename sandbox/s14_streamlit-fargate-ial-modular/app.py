@@ -1,68 +1,100 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
+import numpy as np
 
-# ページ設定
-st.set_page_config(page_title="にゃんこカフェ ダッシュボード", layout="wide")
+st.set_page_config(page_title='ねこねこカンパニー 工場ダッシュボード', layout='wide')
 
-# タイトル
-st.title("にゃんこカフェ ダッシュボード")
+# 会社のロゴを表示（適切な画像ファイルに置き換えてください）
+st.image("nekoneko_logo.png", use_column_width=True)
 
-# 仮のデータ
-visitors_data = pd.DataFrame({
-    'month': ['1月', '2月', '3月', '4月', '5月', '6月'],
-    'visitors': [1200, 1900, 1600, 2200, 2500, 2300]
+st.title("ねこねこカンパニー 工場ダッシュボード")
+
+# 架空のデータを生成
+
+# 過去30日間の日付
+date_range = pd.date_range(end=pd.Timestamp.today(), periods=30)
+
+# 生産状況データ
+production_data = pd.DataFrame({
+    '日付': date_range,
+    '生産数': np.random.randint(80, 120, size=30)
 })
 
-popular_cats_data = pd.DataFrame({
-    'name': ['ミケ', 'ルナ', 'タマ', 'レオ', 'その他'],
-    'value': [30, 25, 20, 15, 10]
+# 品質管理データ
+defect_types = ['キズ', '色ムラ', 'サイズ不良', 'その他']
+quality_data = pd.DataFrame({
+    '日付': date_range,
+    '不良率 (%)': np.random.uniform(1, 5, size=30),
+    '不良品数': np.random.randint(1, 10, size=30),
+    '不良種別': np.random.choice(defect_types, size=30)
 })
 
-# 統計カード
-col1, col2, col3, col4 = st.columns(4)
+# 在庫状況データ
+products = ['ねこぬいぐるみ', 'ねこクッション', 'ねこマグカップ', 'ねこTシャツ']
+inventory_data = pd.DataFrame({
+    '製品': products,
+    '在庫数': np.random.randint(100, 500, size=len(products))
+})
 
-with col1:
-    st.metric(label="総来店者数", value="11,700", delta="+15%")
+# 従業員効率データ
+departments = ['組立', '検査', '梱包', '出荷']
+employee_efficiency = pd.DataFrame({
+    '部署': departments,
+    '平均効率 (%)': np.random.uniform(70, 100, size=len(departments))
+})
 
-with col2:
-    st.metric(label="売上", value="585,000円", delta="+8%")
+# 機械稼働率データ
+machines = ['機械A', '機械B', '機械C', '機械D']
+machine_utilization = pd.DataFrame({
+    '機械': machines,
+    '稼働率 (%)': np.random.uniform(60, 100, size=len(machines))
+})
 
-with col3:
-    st.metric(label="提供コーヒー数", value="8,940", delta="+12%")
+# 受注と出荷データ
+orders_data = pd.DataFrame({
+    '日付': date_range,
+    '受注数': np.random.randint(50, 150, size=30),
+    '出荷数': np.random.randint(40, 140, size=30)
+})
 
-with col4:
-    st.metric(label="猫の譲渡数", value="23", delta="+4")
+# タブを作成
+tabs = st.tabs(["生産状況", "品質管理", "在庫状況", "従業員効率", "機械稼働率", "受注と出荷"])
 
-# グラフ
-col1, col2 = st.columns(2)
+# 生産状況タブ
+with tabs[0]:
+    st.header("生産状況")
+    st.line_chart(production_data.set_index('日付')['生産数'])
+    st.dataframe(production_data)
 
-with col1:
-    st.subheader("月間来店者数")
-    fig = px.bar(visitors_data, x='month', y='visitors', text='visitors')
-    fig.update_traces(texttemplate='%{text:.2s}', textposition='outside')
-    st.plotly_chart(fig, use_container_width=True)
+# 品質管理タブ
+with tabs[1]:
+    st.header("品質管理")
+    st.line_chart(quality_data.set_index('日付')['不良率 (%)'])
+    st.bar_chart(quality_data.set_index('日付')['不良品数'])
+    st.dataframe(quality_data)
 
-with col2:
-    st.subheader("人気の猫ちゃん")
-    fig = px.pie(popular_cats_data, values='value', names='name', hole=.3)
-    fig.update_traces(textposition='inside', textinfo='percent+label')
-    st.plotly_chart(fig, use_container_width=True)
+# 在庫状況タブ
+with tabs[2]:
+    st.header("在庫状況")
+    st.bar_chart(inventory_data.set_index('製品')['在庫数'])
+    st.dataframe(inventory_data)
 
-# 追加情報
-st.markdown("""
----
-### にゃんこカフェについて
-にゃんこカフェは、猫好きの方々が美味しいコーヒーを楽しみながら、可愛い猫たちと触れ合える癒しの空間です。
-また、猫の譲渡も行っており、素敵な家族との出会いをサポートしています。
+# 従業員効率タブ
+with tabs[3]:
+    st.header("従業員効率")
+    st.bar_chart(employee_efficiency.set_index('部署')['平均効率 (%)'])
+    st.dataframe(employee_efficiency)
 
-私たちの使命は、猫と人間の両方にとってリラックスできる環境を提供し、動物福祉と猫との触れ合いの喜びを促進することです。
-""")
+# 機械稼働率タブ
+with tabs[4]:
+    st.header("機械稼働率")
+    st.bar_chart(machine_utilization.set_index('機械')['稼働率 (%)'])
+    st.dataframe(machine_utilization)
 
-# サイドバー（将来的な対話性のため）
-st.sidebar.title("ダッシュボード設定")
-st.sidebar.info("ここにダッシュボードデータを操作するためのフィルターやコントロールを追加できます。")
+# 受注と出荷タブ
+with tabs[5]:
+    st.header("受注と出荷")
+    st.line_chart(orders_data.set_index('日付')[['受注数', '出荷数']])
+    st.dataframe(orders_data)
 
-# ここに日付範囲セレクターや特定の猫のフィルターなど、
-# より多くのインタラクティブな要素を追加できます。
+# 必要に応じて追加の情報やメトリクスを表示できます
