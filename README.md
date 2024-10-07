@@ -117,6 +117,39 @@ aws-terraform-sandbox/
 │  │  ├─ variables.tf
 │  │  ├─ main.tf
 │  │  ├─ README.md
+│  ├─ s08_ec2_docker/
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
+│  ├─ s09-ec2-docker-moa/
+│  │  ├─ variables.tf
+│  │  ├─ setup_script.sh
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
+│  ├─ s10-docker-ec2-scheduler-moa/
+│  │  ├─ scripts/
+│  │  │  ├─ setup_script.sh
+│  │  ├─ modules/
+│  │  │  ├─ networking/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ main.tf
+│  │  │  ├─ compute/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ main.tf
+│  │  │  ├─ iam/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ main.tf
+│  │  ├─ variables.tf
+│  │  ├─ outputs.tf
+│  │  ├─ main.tf
+│  │  ├─ providers.tf
+│  │  ├─ README.md
+│  │  ├─ terraform.tfvars
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -154,10 +187,34 @@ aws-terraform-sandbox/
     - `main.tf`ではS3バケットの作成とタグの適用を行っています。
     - `README.md`には環境の使用方法や設定方法が記載されています。
 
+8. **s08_ec2_docker**: AWS EC2インスタンス上にDocker環境を構築するためのサンドボックス環境を追加しました。
+    - 🎉 **`s08_ec2_docker` サンドボックス環境を追加** 🟢
+    - EC2 インスタンス上にDockerとDocker Composeを自動インストールするためのTerraform設定を提供します。
+    - プライベートサブネットとNAT Gatewayを使用したセキュアなネットワーク設定を提供します。
+    - Systems ManagerによるEC2インスタンスへのセキュアなアクセスを提供します。
+    - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
+    - `terraform.tfvars`で環境設定をカスタマイズできます。
+
+9. **s09-ec2-docker-moa**: AWS EC2 インスタンス上に Docker 環境と MOA プロジェクトをデプロイするためのサンドボックス環境を追加しました。
+    - 🎉 **`s09-ec2-docker-moa` サンドボックス環境を追加** 🟢
+    - EC2 インスタンス上にDockerとDocker Composeを自動的にインストールして、MOA プロジェクトをセットアップします。
+    - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
+    - `terraform.tfvars`で環境設定をカスタマイズできます。
+
+10. **s10-docker-ec2-scheduler-moa**: AWS EC2 インスタンス上に MOA プロジェクトをデプロイし、スケジュールされた開始・停止時間を設定するためのサンドボックス環境を追加しました。
+    - 🎉 **`s10-docker-ec2-scheduler-moa` サンドボックス環境を追加** 🟢
+    - DockerとMOAがプリインストールされたEC2インスタンスを自動的にデプロイします。
+    - EC2 インスタンスを自動的に開始・停止するスケジューラーを実装します。
+    - AWS BedrockやCloud AIサービスを簡単に試せるようにします。
+    - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
+    - `terraform.tfvars`で環境設定をカスタマイズできます。
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v2.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.0.0) : MOAプロジェクトのデプロイ機能、Gemini-1.5-flashモデルの追加、EC2スケジューラーの実装など 🟢
+- 🎉 [v1.10.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.10.0) : AWS EC2インスタンス上にDocker環境を構築するための`s08_ec2_docker`サンドボックス環境を追加 🟢
 - 🎉 [v1.9.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.9.1) : SSOユーザーによるS3バケットの作成とアクセス管理をより簡単に実現するための`s07_simple_sso`サンドボックス環境を追加 🟢
 - 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0) : FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイする環境を提供します。 🟢
 - 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境である`s05_api_lambda`サンドボックス環境を追加 🟢
