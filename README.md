@@ -1,4 +1,3 @@
-<readme>
 <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/aws-terraform-sandbox.png" width="100%">
 <br>
@@ -150,6 +149,12 @@ aws-terraform-sandbox/
 │  │  ├─ providers.tf
 │  │  ├─ README.md
 │  │  ├─ terraform.tfvars
+│  ├─ s11_streamlit-fargate/
+│  │  ├─ app.py
+│  │  ├─ Dockerfile
+│  │  ├─ main.tf
+│  │  ├─ README.md
+│  │  ├─ requirements.txt
 │  ├─ README.md
 ├─ docs/
 │  ├─ REQUIREMENTS_DEFINITION.md
@@ -209,6 +214,14 @@ aws-terraform-sandbox/
     - 環境構築と使用方法に関する詳細を`README.md`に記述しています。
     - `terraform.tfvars`で環境設定をカスタマイズできます。
 
+11. **s11_streamlit-fargate**: AWS Fargate上でStreamlitアプリケーションをデプロイするための環境を提供します。
+    - 🎉 **`s11_streamlit-fargate` サンドボックス環境を追加** 🟢
+    - Dockerを使用してStreamlitアプリケーションをコンテナ化します。
+    - AWS Fargate上にコンテナをデプロイし、スケーラブルな環境を構築します。
+    - Application Load Balancerを使用してトラフィックを分散します。
+    - VPCとセキュリティグループを使用してセキュアなネットワーク設定を提供します。
+    - ECSクラスターとタスク定義の自動セットアップを行います。
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
@@ -252,5 +265,3 @@ aws-terraform-sandbox/
 ---
 
 開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
-</readme>
-```
