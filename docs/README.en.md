@@ -31,15 +31,15 @@
 </p>
 
 >[!IMPORTANT]
->Nearly 90% of this repository's release notes, README, and commit messages were generated using [claude.ai](https://claude.ai/) and [ChatGPT4](https://chatgpt.com/) through [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), and [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
+>Nearly 90% of the release notes, README, and commit messages in this repository are generated using [claude.ai](https://claude.ai/), [ChatGPT4](https://chatgpt.com/), and [AIRA](https://github.com/Sunwood-ai-labs/AIRA), [SourceSage](https://github.com/Sunwood-ai-labs/SourceSage), [Gaiah](https://github.com/Sunwood-ai-labs/Gaiah), [HarmonAI_II](https://github.com/Sunwood-ai-labs/HarmonAI_II).
 
-## 🌟 Getting Started
+## 🌟 Introduction
 
-**aws-terraform-sandbox** is an experimental platform designed to automate and manage AWS cloud infrastructure using Terraform. This repository aims to leverage generative AI for creating Terraform scripts and learning through trial and error in building cloud infrastructure.
+**aws-terraform-sandbox** is an experimental platform for automating and managing the infrastructure of AWS cloud environments with Terraform. This repository aims to create Terraform scripts using generative AI, learn by trial and error, and build cloud infrastructure.
 
-It provides various Terraform templates and scripts for safe experimentation in real AWS environments. It also includes guidelines for designing and implementing infrastructure using generative AI.
+We provide scripts that allow you to safely experiment with real AWS environments using various Terraform templates and scripts. It also includes guidelines for designing and implementing infrastructure using generative AI.
 
-## 🚀 How to Start
+## 🚀 Getting Started
 
 1. Clone the repository:
    ```
@@ -47,7 +47,7 @@ It provides various Terraform templates and scripts for safe experimentation in 
    cd aws-terraform-sandbox
    ```
 
-2. Install [AWS CLI](https://docs.aws.amazon.com/en_us/cli/latest/userguide/getting-started-install.html) and configure your credentials.
+2. Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and configure your credentials.
 
 3. Install [Terraform](https://developer.hashicorp.com/terraform/install).
 
@@ -62,18 +62,18 @@ It provides various Terraform templates and scripts for safe experimentation in 
    terraform apply
    ```
 
-6. Enter `yes` at the prompt to confirm.
+6. When prompted, type `yes` to confirm.
 
-7. Once deployment is complete, access the output public IP address to verify the Streamlit application.
+7. Once deployment is complete, access the public IP address displayed and verify the Streamlit application.
 
-8. After finishing your work, be sure to run the following command to delete resources:
+8. When you are finished working, be sure to run the following command to delete the resources:
    ```
    terraform destroy
    ```
-   Enter `yes` at the confirmation prompt.
+   Type `yes` when prompted for confirmation.
 
 > [!WARNING]
-> The `terraform destroy` command will delete all created AWS resources. Before executing, ensure there is no data you want to retain.
+> The `terraform destroy` command will delete all AWS resources created. Before running, make sure you have no data to keep.
 
 ## 📂 Project Structure
 
@@ -178,106 +178,123 @@ aws-terraform-sandbox/
 
 This repository includes the following sandbox environments:
 
-1. **s01_streamlit_aws_setup**: Sets up AWS infrastructure to deploy a basic Streamlit application.
+1. **s01_streamlit_aws_setup**: Sets up an AWS infrastructure to deploy a basic Streamlit application.
 
-2. **s02_streamlit_aws_deployer**: Deploys a Streamlit application with more advanced settings, including automated startup/shutdown schedules.
+2. **s02_streamlit_aws_deployer**: Deploys Streamlit applications with more advanced configurations and sets up an AWS infrastructure that includes automatic start/stop schedules.
 
-3. **s03_ec2_aws_visual**: Creates EC2 instances and related resources (VPC, subnets, security groups, etc.) and provides tools for visual representation.
-    - 🎉 **EC2 Instance and Related Resource Visualization Functionality**
-    - 🎉 **Automatic AWS Diagram Generation using Generative AI**
+3. **s03_ec2_aws_visual**: Creates an EC2 instance and its related resources (VPC, subnet, security group, etc.), and provides tools for visualizing them.
+    - 🎉 **EC2 instance and related resource visualization functionality**
+    - 🎉 **Automatic generation of AWS diagrams using generative AI**
 
-4. **s04_simple_lambda**: Adds a sandbox environment for deploying and managing simple Lambda functions.
+4. **s04_simple_lambda**: Added a sandbox environment for deploying and managing simple Lambda functions.
 
-5. **s05_api_lambda**: Adds a deployment environment for serverless APIs integrating API Gateway and Lambda functions.
+5. **s05_api_lambda**: Added a deployment environment for serverless APIs integrating API Gateway and Lambda functions.
 
 6. **s06_fastapi_lambda**: Provides an environment for deploying FastAPI using AWS Lambda and API Gateway.
     - 🎉 **Added FastAPI serverless API sandbox environment** 🟢
-    - 🎉 **Added functionality for invoking Lambda functions locally** 🟢
-    - 🚀 **Introduced variables into Terraform scripts** 🟢
-    - 🚀 **Added Python scripts for invoking Lambda functions** 🟢
-    - 🚀 **Changed to use API Gateway URL for invoking Lambda functions** 🟢
+    - 🎉 **Added functionality to call Lambda functions from local** 🟢
+    - 🚀 **Introduced variables into Terraform script** 🟢
+    - 🚀 **Added Python script for calling Lambda functions** 🟢
+    - 🚀 **Changed to call Lambda functions using the API Gateway URL** 🟢
 
-7. **s07_simple_sso**: Added a sandbox environment to facilitate SSO user creation of S3 buckets and access control. 🟢
-    - `variables.tf` allows customization of S3 bucket name prefixes and tags.
-    - `terraform.tfvars.example` provides configuration examples.
-    - `main.tf` creates S3 buckets and applies tags.
-    - `README.md` provides instructions on environment usage and configuration.
+7. **s07_simple_sso**: Added a sandbox environment to make creating and managing S3 buckets by SSO users easier 🟢
+    - You can customize the prefix and tags of the S3 bucket name in `variables.tf`.
+    - `terraform.tfvars.example` provides an example configuration.
+    - `main.tf` creates the S3 bucket and applies tags.
+    - `README.md` describes how to use and configure the environment.
 
-8. **s08_ec2_docker**: Added a sandbox environment for building a Docker environment on an AWS EC2 instance.
+8. **s08_ec2_docker**: Added a sandbox environment for building Docker environments on AWS EC2 instances.
     - 🎉 **Added `s08_ec2_docker` sandbox environment** 🟢
-    - Provides Terraform configuration to automatically install Docker and Docker Compose on EC2 instances.
-    - Provides a secure network configuration with private subnets and NAT Gateway.
-    - Provides secure access to the EC2 instance using Systems Manager.
-    - Details on environment setup and usage are described in `README.md`.
-    - `terraform.tfvars` allows customization of environment settings.
+    - Provides Terraform configuration for automatically installing Docker and Docker Compose on EC2 instances.
+    - Provides a secure network configuration using a private subnet and a NAT Gateway.
+    - Provides secure access to EC2 instances with Systems Manager.
+    - Describes the environment setup and usage in detail in `README.md`.
+    - You can customize environment settings in `terraform.tfvars`.
 
-9. **s09-ec2-docker-moa**: Added a sandbox environment for deploying a Docker environment and the MOA project on an AWS EC2 instance.
+9. **s09-ec2-docker-moa**: Added a sandbox environment for deploying Docker environments and MOA projects on AWS EC2 instances.
     - 🎉 **Added `s09-ec2-docker-moa` sandbox environment** 🟢
-    - Automatically installs Docker and Docker Compose on the EC2 instance to set up the MOA project.
-    - Details on environment setup and usage are described in `README.md`.
-    - `terraform.tfvars` allows customization of environment settings.
+    - Automatically sets up MOA projects by automatically installing Docker and Docker Compose on EC2 instances.
+    - Describes the environment setup and usage in detail in `README.md`.
+    - You can customize environment settings in `terraform.tfvars`.
 
-10. **s10-docker-ec2-scheduler-moa**: Added a sandbox environment for deploying the MOA project on an AWS EC2 instance and setting scheduled start and stop times.
+10. **s10-docker-ec2-scheduler-moa**: Added a sandbox environment for deploying MOA projects on AWS EC2 instances and setting scheduled start and stop times.
     - 🎉 **Added `s10-docker-ec2-scheduler-moa` sandbox environment** 🟢
-    - Automatically deploys EC2 instances with pre-installed Docker and MOA.
-    - Implements a scheduler for automatically starting and stopping EC2 instances.
+    - Automatically deploys EC2 instances with Docker and MOA pre-installed.
+    - Implements a scheduler to automatically start and stop EC2 instances.
     - Makes it easy to try AWS Bedrock and Cloud AI services.
-    - Details on environment setup and usage are described in `README.md`.
-    - `terraform.tfvars` allows customization of environment settings.
+    - Describes the environment setup and usage in detail in `README.md`.
+    - You can customize environment settings in `terraform.tfvars`.
 
 11. **s11_streamlit-fargate**: Provides an environment for deploying Streamlit applications on AWS Fargate.
     - 🎉 **Added `s11_streamlit-fargate` sandbox environment** 🟢
-    - Containerize Streamlit applications using Docker.
-    - Deploy containers on AWS Fargate to build a scalable environment.
-    - Distribute traffic using Application Load Balancer.
-    - Provide secure network configuration using VPC and security groups.
-    - Automatically set up ECS clusters and task definitions.
+    - Containerizes Streamlit applications using Docker.
+    - Deploys containers on AWS Fargate to build a scalable environment.
+    - Distributes traffic using the Application Load Balancer.
+    - Provides secure network settings using VPC and security groups.
+    - Automatically sets up ECS clusters and task definitions.
 
 12. **s13_streamlit-fargate-ial**: Provides an environment for deploying Streamlit applications on AWS Fargate.
     - 🎉 **Added `s13_streamlit-fargate-ial` sandbox environment** 🟢
-    - Containerize Streamlit applications using Docker.
-    - Deploy containers on AWS Fargate to build a scalable environment.
-    - Distribute traffic using Application Load Balancer.
-    - Provide secure network configuration using VPC and security groups.
-    - Automatically set up ECS clusters and task definitions.
-    - Creates a Neko Cafe Dashboard application as an example of creating an application with Streamlit and deploying it using AWS Fargate and ECS.
+    - Containerizes Streamlit applications using Docker.
+    - Deploys containers on AWS Fargate to build a scalable environment.
+    - Distributes traffic using the Application Load Balancer.
+    - Provides secure network settings using VPC and security groups.
+    - Automatically sets up ECS clusters and task definitions.
+    - Creates a Nyan Cafe dashboard application, provides an example of creating with Streamlit and deploying using AWS Fargate and ECS.
 
-For details on each sandbox environment, please refer to [sandbox/README.md](sandbox/README.md).
+13. **s14_streamlit-fargate-ial-modular**: Added a sandbox environment for deploying Streamlit applications on AWS Fargate and managing infrastructure using modularized Terraform code.
+    - 🎉 **Added `s14_streamlit-fargate-ial-modular` sandbox environment** 🟢
+    - Uses modules to separate and manage infrastructure components such as network, security, ALB, and ECS.
+    - Introduces IP whitelist functionality, restricting access to the ALB.
+    - Simplifies the construction of continuous integration and continuous delivery (CI/CD) pipelines.
+
+14. **s15_streamlit-fargate-whitelist**: Provides an environment for deploying Streamlit applications on AWS Fargate with added IP whitelist functionality.
+    - 🎉 **Added `s15_streamlit-fargate-whitelist` sandbox environment** 🟢
+    - Containerizes Streamlit applications using Docker.
+    - Deploys containers on AWS Fargate to build a scalable environment.
+    - Distributes traffic using the Application Load Balancer.
+    - Provides secure network settings using VPC and security groups.
+    - Automatically sets up ECS clusters and task definitions.
+    - Introduces IP whitelist functionality, restricting access to the ALB.
+    - You can update Fargate images using PowerShell scripts.
+
+For details on each sandbox environment, see [sandbox/README.md](sandbox/README.md).
 
 ## 📝 Updates
 
-- 🎉 [v2.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.1.0): Improved `s13_streamlit-fargate-ial` sandbox environment and updated documentation 🟢
-- 🎉 [v2.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.0.0): Added MOA project deployment functionality, Gemini-1.5-flash model, EC2 scheduler implementation, etc. 🟢
-- 🎉 [v1.10.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.10.0): Added `s08_ec2_docker` sandbox environment for building a Docker environment on an AWS EC2 instance. 🟢
-- 🎉 [v1.9.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.9.1): Added `s07_simple_sso` sandbox environment to facilitate SSO user creation of S3 buckets and access control. 🟢
-- 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0): Provides an environment for deploying FastAPI using AWS Lambda and API Gateway. 🟢
-- 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0): Added `s05_api_lambda` sandbox environment for serverless APIs integrating API Gateway and Lambda functions. 🟢
-- 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0): Added a sandbox environment for deploying and managing simple Lambda functions. 🟢
-- 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1): Added EC2 instance and related resource visualization functionality, and automatic AWS diagram generation using generative AI. 🟢
-- 🎉 [v1.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.4.0): Added EC2 AWS Visual Sandbox. 🟢
-- 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0): Enhanced Streamlit app deployer security and improved documentation.
-- 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0): Added Terraform configuration for Streamlit app deployment.
-- 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1): Improved documentation and style changes.
-- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0): Adjusted header image generation algorithm.
-- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0): Organized maintenance scripts.
+- 🎉 [v2.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.2.0) : Added `s15_streamlit-fargate-whitelist` sandbox environment and updated documentation 🟢
+- 🎉 [v2.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.1.0) : Improved `s13_streamlit-fargate-ial` sandbox environment and updated documentation 🟢
+- 🎉 [v2.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.0.0) : Added MOA project deployment functionality, Gemini-1.5-flash model, implemented EC2 scheduler, etc. 🟢
+- 🎉 [v1.10.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.10.0) : Added `s08_ec2_docker` sandbox environment for building Docker environments on AWS EC2 instances 🟢
+- 🎉 [v1.9.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.9.1) : Added `s07_simple_sso` sandbox environment to make creating and managing S3 buckets by SSO users easier 🟢
+- 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0) : Provides an environment for deploying FastAPI using AWS Lambda and API Gateway. 🟢
+- 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : Added `s05_api_lambda` sandbox environment, a deployment environment for serverless APIs integrating API Gateway and Lambda functions 🟢
+- 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0) : Added a sandbox environment for deploying and managing simple Lambda functions. 🟢
+- 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : Added EC2 instance and related resource visualization functionality, automatic generation of AWS diagrams using generative AI 🟢
+- 🎉 [v1.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.4.0) : Added EC2 AWS Visual Sandbox 🟢
+- 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0) : Enhanced security of Streamlit app deployer and improved documentation
+- 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0) : Added Terraform configurations for Streamlit app deployment
+- 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : Improved documentation and style changes
+- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : Adjusted header image generation algorithm
+- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : Refined maintenance scripts
 
-## 🤖 Generative AI Utilization
+## 🤖 Generative AI Usage
 
-This repository utilizes generative AI to create Terraform scripts. The requirements definition document for using generative AI to design and implement infrastructure is available at [docs/REQUIREMENTS_DEFINITION.md](docs/REQUIREMENTS_DEFINITION.md). Refer to this document to learn how to effectively leverage generative AI to build AWS resources.
+This repository utilizes generative AI to create Terraform scripts. The requirements definition document for using generative AI to design and implement infrastructure is available at [docs/REQUIREMENTS_DEFINITION.md](docs/REQUIREMENTS_DEFINITION.md). By referring to this document, you can learn how to effectively use generative AI to build AWS resources.
 
-## 🤝 Contribution
+## 🤝 Contributions
 
 1. Fork this repository.
-2. Create a new branch ( `git checkout -b feature/amazing-feature` ).
-3. Commit your changes ( `git commit -m 'Add some amazing feature'` ).
-4. Push to the branch ( `git push origin feature/amazing-feature` ).
+2. Create a new branch ( `git checkout -b feature/amazing-feature`).
+3. Commit your changes ( `git commit -m 'Add some amazing feature'`).
+4. Push to the branch ( `git push origin feature/amazing-feature`).
 5. Create a pull request.
 
 ## 📄 License
 
-This project is licensed under the MIT License. For more information, please refer to the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 🙏 Acknowledgements
 
 - [Terraform](https://www.terraform.io/)
 - [AWS](https://aws.amazon.com/)
