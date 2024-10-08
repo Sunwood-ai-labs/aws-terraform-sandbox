@@ -51,8 +51,9 @@ s13_streamlit-fargate-ial/
 
 2. Dockerイメージをビルドしてプッシュします：
    ```
-   docker build -t your-docker-hub-username/nyanko-cafe-app:latest .
-   docker push your-docker-hub-username/nyanko-cafe-app:latest
+   docker build -t makisunwood/nekoneko-app:latest .
+   docker run -p 8501:8501 makisunwood/nekoneko-app:latest
+   docker push makisunwood/nekoneko-app:latest
    ```
 
 3. `terraform.tfvars` ファイルを更新します：
