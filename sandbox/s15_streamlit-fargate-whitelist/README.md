@@ -66,19 +66,19 @@ s13_streamlit-fargate-ial/
    b. ECRにログイン：
    ```
    aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com
-   ex:) aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
+   ex:) aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 123456789.dkr.ecr.ap-northeast-1.amazonaws.com
    ```
 
    c. イメージにタグを付ける：
    ```
    docker tag nyanko-cafe-app:latest <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
-   ex:) docker tag nyanko-cafe-app:latest 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ex:) docker tag nyanko-cafe-app:latest 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
    ```
 
    d. ECRにイメージをプッシュ：
    ```
    docker push <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
-   ex:) docker push 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ex:) docker push 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
    ```
 
    B) Docker Hubにプッシュする場合：
@@ -155,6 +155,62 @@ s13_streamlit-fargate-ial/
 ```
 terraform destroy
 ```
+
+## 🔄 イメージの更新とデプロイ
+
+アプリケーションを更新した後、新しいイメージをビルドしてデプロイする必要があります。この処理は手動で行うか、提供されているPowerShellスクリプトを使用して自動化できます。
+
+### PowerShellスクリプトを使用した更新
+
+`update-fargate-image.ps1`という名前のPowerShellスクリプトが用意されています。このスクリプトは、イメージのビルド、ECRへのプッシュ、およびECSサービスの更新を自動的に行います。
+
+スクリプトを使用するには：
+
+1. PowerShellを管理者権限で開きます。
+2. プロジェクトディレクトリに移動します。
+3. 次のコマンドを実行します：
+
+   ```powershell
+   .\update-fargate-image.ps1
+   ```
+
+### 手動更新手順
+
+PowerShellスクリプトを使用しない場合は、以下の手順で手動更新を行うことができます：
+
+1. 新しいDockerイメージをビルド：
+   ```
+   docker build -t nyanko-cafe-app:latest .
+   ```
+
+2. ECRにログイン：
+   ```
+   aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 123456789.dkr.ecr.ap-northeast-1.amazonaws.com
+   ```
+
+3. イメージにECRリポジトリのタグを付ける：
+   ```
+   docker tag nyanko-cafe-app:latest 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ```
+
+4. ECRにイメージをプッシュ：
+   ```
+   docker push 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ```
+
+5. ECSサービスを強制的に新しいデプロイメントにする：
+   ```
+   aws ecs update-service --cluster streamlit-nyanko-cafe-cluster --service streamlit-nyanko-cafe-service --force-new-deployment
+   ```
+
+6. デプロイの状態を確認：
+   ```
+   aws ecs describe-services --cluster streamlit-nyanko-cafe-cluster --services streamlit-nyanko-cafe-service
+   ```
+
+これらの手順を実行することで、新しいイメージがビルドされ、ECRにプッシュされ、ECSサービスが更新されて新しいイメージを使用するようになります。
+
+注意：これらのコマンドを実行する前に、AWS CLIとDocker CLIが正しく設定されていること、および必要な権限があることを確認してください。
 
 ## 🤝 貢献
 
