@@ -1,6 +1,6 @@
-![Architecture Diagram](https://raw.githubusercontent.com/Sunwood-ai-labs/aws-terraform-sandbox/main/docs/USAGE_03.png)
-
 # 🐱 にゃんこカフェ ダッシュボード: AWS Fargate上のStreamlitアプリケーション
+
+![Architecture Diagram](https://raw.githubusercontent.com/Sunwood-ai-labs/aws-terraform-sandbox/main/docs/USAGE_03.png)
 
 このプロジェクトは、AWS FargateとECSを使用してStreamlitで作成されたにゃんこカフェのダッシュボードアプリケーションをデプロイします。Terraformを使用してインフラストラクチャをコード化しています。
 
@@ -10,8 +10,8 @@
 - Terraformを使用してAWSリソースを自動的にプロビジョニングする
 - コンテナ化されたアプリケーションの簡単なデプロイと管理を実現する
 
-## 🌟 主な特徴$$
-$$
+## 🌟 主な特徴
+
 - StreamlitとPlotlyを使用した対話的なダッシュボード
 - DockerコンテナとしてパッケージングされたStreamlitアプリケーション
 - AWS FargateとECSを使用したサーバーレスデプロイメント
@@ -49,31 +49,85 @@ s13_streamlit-fargate-ial/
    cd s13_streamlit-fargate-ial
    ```
 
-2. Dockerイメージをビルドしてプッシュします：
+2. Dockerイメージをビルドします：
    ```
-   docker build -t your-docker-hub-username/nyanko-cafe-app:latest .
-   docker push your-docker-hub-username/nyanko-cafe-app:latest
+   docker build -t nyanko-cafe-app .
    ```
 
-3. `terraform.tfvars` ファイルを更新します：
+3. イメージをリポジトリにプッシュします。以下のA）またはB）のいずれかを選択してください：
+
+   A) Amazon ECRにプッシュする場合：
+
+   a. ECRリポジトリを作成：
+   ```
+   aws ecr create-repository --repository-name nyanko-cafe-app --region ap-northeast-1
+   ```
+
+   b. ECRにログイン：
+   ```
+   aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com
+   ex:) aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com
+   ```
+
+   c. イメージにタグを付ける：
+   ```
+   docker tag nyanko-cafe-app:latest <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ex:) docker tag nyanko-cafe-app:latest 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ```
+
+   d. ECRにイメージをプッシュ：
+   ```
+   docker push <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ex:) docker push 498218886114.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   ```
+
+   B) Docker Hubにプッシュする場合：
+
+   a. Docker Hubにログイン：
+   ```
+   docker login
+   ```
+
+   b. イメージにタグを付ける：
+   ```
+   docker tag nyanko-cafe-app:latest your-dockerhub-username/nyanko-cafe-app:latest
+   ```
+
+   c. Docker Hubにイメージをプッシュ：
+   ```
+   docker push your-dockerhub-username/nyanko-cafe-app:latest
+   ```
+
+4. `terraform.tfvars` ファイルを更新します。使用したリポジトリに応じて以下のように設定します：
+
+   ECRの場合：
+   ```
+   container_image = "<YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest"
+   ```
+
+   Docker Hubの場合：
+   ```
+   container_image = "your-dockerhub-username/nyanko-cafe-app:latest"
+   ```
+
+   その他の設定：
    ```
    aws_region      = "ap-northeast-1"
    project_name    = "streamlit-nyanko-cafe"
    vpc_cidr        = "10.0.0.0/16"
-   container_image = "your-docker-hub-username/nyanko-cafe-app:latest"
    task_cpu        = "256"
    task_memory     = "512"
    app_count       = 1
    ```
 
-4. Terraformを初期化し、適用します：
+5. Terraformを初期化し、適用します：
    ```
    terraform init
    terraform plan
    terraform apply
    ```
 
-5. デプロイが完了したら、出力されたALBのDNS名を使用してアプリケーションにアクセスできます。
+6. デプロイが完了したら、出力されたALBのDNS名を使用してアプリケーションにアクセスできます。
 
 ## 📊 アプリケーションの特徴
 

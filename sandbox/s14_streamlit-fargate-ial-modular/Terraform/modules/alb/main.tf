@@ -24,7 +24,7 @@ resource "aws_lb_listener" "http" {
 }
 
 resource "aws_lb_target_group" "main" {
-  name        = "${var.app_name}-tg"
+  name        = "${var.app_name}-tg-lb"
   port        = var.container_port
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
@@ -39,4 +39,6 @@ resource "aws_lb_target_group" "main" {
     path                = var.health_check_path
     unhealthy_threshold = "2"
   }
+
+  # lifecycleブロックを削除
 }
