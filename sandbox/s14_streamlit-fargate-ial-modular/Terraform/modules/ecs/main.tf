@@ -1,6 +1,10 @@
 resource "aws_cloudwatch_log_group" "ecs_logs" {
-  name = "/ecs/${var.app_name}"
+  name              = "/ecs/${var.app_name}"
   retention_in_days = 30
+}
+
+resource "aws_ecs_cluster" "main" {
+  name = "${var.app_name}-cluster"
 }
 
 resource "aws_ecs_task_definition" "main" {
@@ -29,33 +33,6 @@ resource "aws_ecs_task_definition" "main" {
   }])
 }
 
-resource "aws_iam_role_policy_attachment" "ecs_execution_role_policy_logs" {
-  role       = aws_iam_role.ecs_execution_role.name
-  policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
-}
-
-resource "aws_ecs_cluster" "main" {
-  name = "${var.app_name}-cluster"
-}
-
-resource "aws_ecs_task_definition" "main" {
-  family                   = "${var.app_name}-task"
-  network_mode             = "awsvpc"
-  requires_compatibilities = ["FARGATE"]
-  cpu                      = var.task_cpu
-  memory                   = var.task_memory
-  execution_role_arn       = aws_iam_role.ecs_execution_role.arn
-
-  container_definitions = jsonencode([{
-    name  = var.app_name
-    image = var.container_image
-    portMappings = [{
-      containerPort = var.container_port
-      hostPort      = var.container_port
-    }]
-  }])
-}
-
 resource "aws_ecs_service" "main" {
   name            = "${var.app_name}-service"
   cluster         = aws_ecs_cluster.main.id
@@ -73,6 +50,8 @@ resource "aws_ecs_service" "main" {
     container_name   = var.app_name
     container_port   = var.container_port
   }
+
+  # depends_onを削除
 }
 
 resource "aws_iam_role" "ecs_execution_role" {
@@ -93,4 +72,9 @@ resource "aws_iam_role" "ecs_execution_role" {
 resource "aws_iam_role_policy_attachment" "ecs_execution_role_policy" {
   role       = aws_iam_role.ecs_execution_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "ecs_execution_role_policy_logs" {
+  role       = aws_iam_role.ecs_execution_role.name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
