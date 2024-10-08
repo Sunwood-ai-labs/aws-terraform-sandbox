@@ -1,35 +1,43 @@
-# 🐱 にゃんこカフェ ダッシュボード: AWS Fargate上のStreamlitアプリケーション
+# 🐱 ねこねこカンパニー 工場ダッシュボード: AWS Fargate上のStreamlitアプリケーション（ホワイトリスト機能付き）
 
 ![Architecture Diagram](https://raw.githubusercontent.com/Sunwood-ai-labs/aws-terraform-sandbox/main/docs/USAGE_03.png)
 
-このプロジェクトは、AWS FargateとECSを使用してStreamlitで作成されたにゃんこカフェのダッシュボードアプリケーションをデプロイします。Terraformを使用してインフラストラクチャをコード化しています。
+このプロジェクトは、AWS FargateとECSを使用してStreamlitで作成されたねこねこカンパニーの工場ダッシュボードアプリケーションをデプロイします。Terraformを使用してインフラストラクチャをコード化し、IPホワイトリスト機能を実装しています。
 
 ## 🎯 プロジェクトの目的
 
 - StreamlitアプリケーションをAWS Fargateにデプロイする
 - Terraformを使用してAWSリソースを自動的にプロビジョニングする
 - コンテナ化されたアプリケーションの簡単なデプロイと管理を実現する
+- IPホワイトリストによるセキュアなアクセス制御を実装する
 
 ## 🌟 主な特徴
 
-- StreamlitとPlotlyを使用した対話的なダッシュボード
+- StreamlitとPlotlyを使用した対話的な工場ダッシュボード
 - DockerコンテナとしてパッケージングされたStreamlitアプリケーション
 - AWS FargateとECSを使用したサーバーレスデプロイメント
 - Application Load Balancerを使用した高可用性と負荷分散
 - Terraformを使用したインフラストラクチャのコード化
+- CSVファイルを使用したIPホワイトリスト機能
 
 ## 📁 プロジェクト構造
 
 ```
-s13_streamlit-fargate-ial/
+s15_streamlit-fargate-whitelist/
+├─ script/
+│  ├─ update-fargate-image.ps1
+├─ Terraform/
+│  ├─ main.tf
+│  ├─ outputs.tf
+│  ├─ terraform.tfvars
+│  ├─ variables.tf
+│  ├─ whitelist.csv
+├─ .streamlit/
+│  ├─ config.toml
 ├─ app.py
 ├─ Dockerfile
-├─ main.tf
-├─ variables.tf
-├─ outputs.tf
-├─ terraform.tfvars
-├─ requirements.txt
 ├─ README.md
+├─ requirements.txt
 ```
 
 ## 🚀 はじめ方
@@ -45,8 +53,8 @@ s13_streamlit-fargate-ial/
 
 1. リポジトリをクローンします：
    ```
-   git clone https://github.com/your-repo/s13_streamlit-fargate-ial.git
-   cd s13_streamlit-fargate-ial
+   git clone https://github.com/your-repo/s15_streamlit-fargate-whitelist.git
+   cd s15_streamlit-fargate-whitelist
    ```
 
 2. Dockerイメージをビルドします：
@@ -54,9 +62,7 @@ s13_streamlit-fargate-ial/
    docker build -t nyanko-cafe-app .
    ```
 
-3. イメージをリポジトリにプッシュします。以下のA）またはB）のいずれかを選択してください：
-
-   A) Amazon ECRにプッシュする場合：
+3. イメージをAmazon ECRにプッシュします：
 
    a. ECRリポジトリを作成：
    ```
@@ -66,87 +72,69 @@ s13_streamlit-fargate-ial/
    b. ECRにログイン：
    ```
    aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com
-   ex:) aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 123456789.dkr.ecr.ap-northeast-1.amazonaws.com
    ```
 
    c. イメージにタグを付ける：
    ```
    docker tag nyanko-cafe-app:latest <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
-   ex:) docker tag nyanko-cafe-app:latest 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
    ```
 
    d. ECRにイメージをプッシュ：
    ```
    docker push <YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
-   ex:) docker push 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
    ```
 
-   B) Docker Hubにプッシュする場合：
+4. `Terraform/terraform.tfvars` ファイルを更新します：
 
-   a. Docker Hubにログイン：
-   ```
-   docker login
-   ```
-
-   b. イメージにタグを付ける：
-   ```
-   docker tag nyanko-cafe-app:latest your-dockerhub-username/nyanko-cafe-app:latest
-   ```
-
-   c. Docker Hubにイメージをプッシュ：
-   ```
-   docker push your-dockerhub-username/nyanko-cafe-app:latest
-   ```
-
-4. `terraform.tfvars` ファイルを更新します。使用したリポジトリに応じて以下のように設定します：
-
-   ECRの場合：
-   ```
-   container_image = "<YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest"
-   ```
-
-   Docker Hubの場合：
-   ```
-   container_image = "your-dockerhub-username/nyanko-cafe-app:latest"
-   ```
-
-   その他の設定：
    ```
    aws_region      = "ap-northeast-1"
    project_name    = "streamlit-nyanko-cafe"
    vpc_cidr        = "10.0.0.0/16"
+   container_image = "<YOUR-ACCOUNT-ID>.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest"
    task_cpu        = "256"
    task_memory     = "512"
    app_count       = 1
    ```
 
-5. Terraformを初期化し、適用します：
+5. `Terraform/whitelist.csv` ファイルを編集して、許可するIPアドレスを設定します：
+
    ```
+   ip,description
+   203.0.113.0/24,Client demo network
+   193.186.4.177/32,Office network
+   ```
+
+6. Terraformを初期化し、適用します：
+   ```
+   cd Terraform
    terraform init
    terraform plan
    terraform apply
    ```
 
-6. デプロイが完了したら、出力されたALBのDNS名を使用してアプリケーションにアクセスできます。
+7. デプロイが完了したら、出力されたALBのDNS名を使用してアプリケーションにアクセスできます。
 
 ## 📊 アプリケーションの特徴
 
-- 月間来店者数のグラフ表示
-- 人気の猫ちゃんの円グラフ
-- 主要な統計情報のメトリクス表示
-- にゃんこカフェについての説明
+- 生産状況のグラフ表示
+- 品質管理データの可視化
+- 在庫状況の棒グラフ
+- 従業員効率と機械稼働率の表示
+- 受注と出荷データの時系列表示
 
 ## 🔐 セキュリティ考慮事項
 
 - VPC、サブネット、セキュリティグループを使用した安全なネットワーク設定
 - ALBとECSタスク用の適切に設定されたセキュリティグループ
 - IAMロールとポリシーを使用した最小権限の原則の適用
+- CSVファイルを使用したIPホワイトリスト機能による接続制限
 
 ## 📝 カスタマイズ
 
 - `app.py`: Streamlitアプリケーションのコードを修正してダッシュボードをカスタマイズ
-- `main.tf`: AWSリソースの設定を調整
-- `variables.tf` と `terraform.tfvars`: 変数の値を更新
+- `Terraform/main.tf`: AWSリソースの設定を調整
+- `Terraform/variables.tf` と `Terraform/terraform.tfvars`: 変数の値を更新
+- `Terraform/whitelist.csv`: 許可するIPアドレスを追加または削除
 
 ## 🧹 クリーンアップ
 
@@ -162,7 +150,7 @@ terraform destroy
 
 ### PowerShellスクリプトを使用した更新
 
-`update-fargate-image.ps1`という名前のPowerShellスクリプトが用意されています。このスクリプトは、イメージのビルド、ECRへのプッシュ、およびECSサービスの更新を自動的に行います。
+`script/update-fargate-image.ps1`スクリプトを使用して、イメージのビルド、ECRへのプッシュ、およびECSサービスの更新を自動的に行うことができます。
 
 スクリプトを使用するには：
 
@@ -171,46 +159,49 @@ terraform destroy
 3. 次のコマンドを実行します：
 
    ```powershell
-   .\update-fargate-image.ps1
+   .\script\update-fargate-image.ps1
    ```
 
 ### 手動更新手順
 
-PowerShellスクリプトを使用しない場合は、以下の手順で手動更新を行うことができます：
+PowerShellスクリプトを使用しない場合は、README.mdの「デプロイ手順」セクションに記載されている手順2〜4を実行し、その後ECSサービスを更新します。
 
-1. 新しいDockerイメージをビルド：
-   ```
-   docker build -t nyanko-cafe-app:latest .
-   ```
+## Docker Hubを使用したデプロイ方法
 
-2. ECRにログイン：
-   ```
-   aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 123456789.dkr.ecr.ap-northeast-1.amazonaws.com
-   ```
+Amazon ECRの代わりにDocker Hubを使用してイメージをホストすることもできます。以下は、Docker Hubを使用したデプロイ手順です：
 
-3. イメージにECRリポジトリのタグを付ける：
+1. Docker Hubにログインします：
    ```
-   docker tag nyanko-cafe-app:latest 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
+   docker login
    ```
 
-4. ECRにイメージをプッシュ：
+2. イメージにタグを付けます：
    ```
-   docker push 123456789.dkr.ecr.ap-northeast-1.amazonaws.com/nyanko-cafe-app:latest
-   ```
-
-5. ECSサービスを強制的に新しいデプロイメントにする：
-   ```
-   aws ecs update-service --cluster streamlit-nyanko-cafe-cluster --service streamlit-nyanko-cafe-service --force-new-deployment
+   docker tag nyanko-cafe-app:latest your-dockerhub-username/nyanko-cafe-app:latest
    ```
 
-6. デプロイの状態を確認：
+3. Docker Hubにイメージをプッシュします：
    ```
-   aws ecs describe-services --cluster streamlit-nyanko-cafe-cluster --services streamlit-nyanko-cafe-service
+   docker push your-dockerhub-username/nyanko-cafe-app:latest
    ```
 
-これらの手順を実行することで、新しいイメージがビルドされ、ECRにプッシュされ、ECSサービスが更新されて新しいイメージを使用するようになります。
+4. `Terraform/terraform.tfvars` ファイルを更新して、Docker Hubのイメージを使用するように設定します：
 
-注意：これらのコマンドを実行する前に、AWS CLIとDocker CLIが正しく設定されていること、および必要な権限があることを確認してください。
+   ```
+   aws_region      = "ap-northeast-1"
+   project_name    = "streamlit-nyanko-cafe"
+   vpc_cidr        = "10.0.0.0/16"
+   container_image = "your-dockerhub-username/nyanko-cafe-app:latest"
+   task_cpu        = "256"
+   task_memory     = "512"
+   app_count       = 1
+   ```
+
+5. Terraformの適用手順は同じです。
+
+注意: Docker Hubの公開リポジトリを使用する場合、イメージが公開されることに注意してください。プライベートリポジトリを使用する場合は、ECSタスク実行ロールにDocker Hubの認証情報を提供する必要があります。
+
+
 
 ## 🤝 貢献
 

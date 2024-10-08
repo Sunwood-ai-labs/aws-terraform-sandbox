@@ -182,3 +182,4 @@ sandbox/s04_lambda/lambda/test/src/test_terraform.zip
 sandbox/s07_simple_sso/terraform.tfvars
 sandbox/s13_streamlit-fargate-ial/.terraform.tfstate.lock.info
 sandbox/s14_streamlit-fargate-ial-modular/Terraform/terraform.tfstate.1728386371.backup
+sandbox/s15_streamlit-fargate-whitelist/Terraform/.terraform.tfstate.lock.info
