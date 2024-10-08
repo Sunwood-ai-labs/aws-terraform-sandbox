@@ -18,7 +18,8 @@ public_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
 # whitelist_ips = ["203.0.113.0/24"]
 
 # 使用するコンテナイメージ
-container_image = "makisunwood/nekoneko-app:latest"
+# container_image = "makisunwood/nekoneko-app:latest"
+container_image = "makisunwood/nyanko-cafe-app:latest"
 
 # コンテナのポート
 container_port = 8501
