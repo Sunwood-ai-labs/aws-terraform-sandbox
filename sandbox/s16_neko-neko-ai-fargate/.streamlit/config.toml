@@ -1,0 +1,7 @@
+[theme]
+primaryColor="#3A332C"                # 濃いニュートラルカラー（暗めのブラウン系グレー）
+backgroundColor="#E3E0DC"             # 落ち着いたディープアクセントカラー（非常に暗いブラウン）
+secondaryBackgroundColor="#B1AEA9"    # 明度を抑えたセカンダリカラー（グレーがかったベージュ）
+textColor="#4B2F23"                   # コントラストのある深いアクセント（赤みを帯びたダークブラウン）
+accentColor="#736F6A"                 # モダンで落ち着いたアクセントカラー（グレーがかったブラウン）
+font="sans serif"
