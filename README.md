@@ -240,10 +240,27 @@ aws-terraform-sandbox/
     - ECSクラスターとタスク定義の自動セットアップを行います。
     - にゃんこカフェダッシュボードアプリケーションを作成し、Streamlit で作成し、AWS Fargate と ECS を使用してデプロイする例を提供します
 
+13. **s14_streamlit-fargate-ial-modular**: AWS Fargate で Streamlit アプリケーションをデプロイし、モジュール化された Terraform コードを使用してインフラストラクチャを管理するためのサンドボックス環境を追加しました。
+    - 🎉 **`s14_streamlit-fargate-ial-modular` サンドボックス環境を追加** 🟢
+    - モジュールを使用して、ネットワーク、セキュリティ、ALB、ECS などのインフラストラクチャコンポーネントを分離して管理します。
+    - IP ホワイトリスト機能を導入し、ALB へのアクセスを制限できます。
+    - 継続的インテグレーションと継続的デリバリー (CI/CD) パイプラインの構築を簡素化します。
+
+14. **s15_streamlit-fargate-whitelist**: AWS Fargate上でStreamlitアプリケーションをデプロイし、IPホワイトリスト機能を追加した環境を提供します。
+    - 🎉 **`s15_streamlit-fargate-whitelist` サンドボックス環境を追加** 🟢
+    - Dockerを使用してStreamlitアプリケーションをコンテナ化します。
+    - AWS Fargate上にコンテナをデプロイし、スケーラブルな環境を構築します。
+    - Application Load Balancerを使用してトラフィックを分散します。
+    - VPCとセキュリティグループを使用してセキュアなネットワーク設定を提供します。
+    - ECSクラスターとタスク定義の自動セットアップを行います。
+    - IPホワイトリスト機能を導入し、ALB へのアクセスを制限できます。
+    - PowerShellスクリプトを使用して、Fargateイメージを更新できます。
+
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v2.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.2.0) : `s15_streamlit-fargate-whitelist` サンドボックス環境の追加と、ドキュメントの更新 🟢
 - 🎉 [v2.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.1.0) : `s13_streamlit-fargate-ial` サンドボックス環境の改善と、ドキュメントの更新 🟢
 - 🎉 [v2.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.0.0) : MOAプロジェクトのデプロイ機能、Gemini-1.5-flashモデルの追加、EC2スケジューラーの実装など 🟢
 - 🎉 [v1.10.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.10.0) : AWS EC2インスタンス上にDocker環境を構築するための`s08_ec2_docker`サンドボックス環境を追加 🟢
