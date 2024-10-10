@@ -96,6 +96,32 @@ s17-docker-ec2-litellm-server/
 - IAMロールとポリシーを使用して、最小限の必要な権限のみを付与しています
 - AWS Systems Managerを使用してインスタンス管理を行い、直接のSSHアクセスの必要性を減らしています
 
+## 🔑 SSH接続
+
+EC2インスタンスにSSH接続する方法は2つあります：
+
+### 1. Session Manager経由のSSH接続
+
+1. [Session Manager プラグインをインストール](https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/install-plugin-windows.html)します。
+
+2. `~/.ssh/config`ファイル（Windowsの場合は`C:\Users\YourUsername\.ssh\config`）に以下の設定を追加します：
+
+```
+host i-* mi-*
+    ProxyCommand aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters "portNumber=%p"
+```
+
+3. 以下のコマンドでSSH接続します（インスタンスIDを実際のものに置き換えてください）：
+
+```bash
+ssh -i "path/to/your/key.pem" ubuntu@i-1234567890abcdef0
+```
+ 
+例：
+```bash
+ssh -i "C:\Users\makim\.ssh\streamlit-terraform-keypair-tokyo-PEM.pem" ubuntu@i-0323e0aac64f073a7
+```
+
 ## 📝 カスタマイズ
 
 以下のファイルを修正することでプロジェクトをカスタマイズできます：
