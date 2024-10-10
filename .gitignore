@@ -183,3 +183,7 @@ sandbox/s07_simple_sso/terraform.tfvars
 sandbox/s13_streamlit-fargate-ial/.terraform.tfstate.lock.info
 sandbox/s14_streamlit-fargate-ial-modular/Terraform/terraform.tfstate.1728386371.backup
 sandbox/s15_streamlit-fargate-whitelist/Terraform/.terraform.tfstate.lock.info
+sandbox/s18-docker-ec2-gitlab/data
+sandbox/s18-docker-ec2-gitlab/logs
+sandbox/s18-docker-ec2-gitlab/config
+sandbox/s18-docker-ec2-gitlab/backups
