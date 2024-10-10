@@ -1,0 +1,40 @@
+version: '3.6'
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://192.168.0.166:8929'
+        gitlab_rails['gitlab_shell_ssh_port'] = 2224
+        nginx['listen_port'] = 80
+
+        # バックアップの保持期間を設定 (例:7日間)
+        gitlab_rails['backup_keep_time'] = 604800
+    ports:
+      - '8929:80'
+      - '2224:22'
+    volumes:
+      - './config:/etc/gitlab'
+      - './logs:/var/log/gitlab'
+      - './data:/var/opt/gitlab'
+      - './backups:/var/opt/gitlab/backups'
+    shm_size: '256m'
+
+  backup:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    volumes:
+      - './config:/etc/gitlab'
+      - './logs:/var/log/gitlab'
+      - './data:/var/opt/gitlab'
+      - './backups:/var/opt/gitlab/backups'
+    entrypoint: |
+      bash -c '
+        while :; do
+          gitlab-backup create SKIP=db
+          sleep 86400
+        done
+      '
+    depends_on:
+      - web
