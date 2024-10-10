@@ -165,12 +165,245 @@ aws-terraform-sandbox/
 │  │  ├─ app.py
 │  │  ├─ variables.tf
 │  │  ├─ requirements.txt
+│  ├─ s14_streamlit-fargate-ial-modular/
+│  │  ├─ Terraform/
+│  │  │  ├─ modules/
+│  │  │  │  ├─ alb/
+│  │  │  │  │  ├─ variables.tf
+│  │  │  │  │  ├─ main.tf
+│  │  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ ecs/
+│  │  │  │  │  ├─ variables.tf
+│  │  │  │  │  ├─ main.tf
+│  │  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ scheduler/
+│  │  │  │  │  ├─ variables.tf
+│  │  │  │  │  ├─ main.tf
+│  │  │  │  ├─ security/
+│  │  │  │  │  ├─ variables.tf
+│  │  │  │  │  ├─ main.tf
+│  │  │  │  │  ├─ outputs.tf
+│  │  │  │  ├─ network/
+│  │  │  │  │  ├─ variables.tf
+│  │  │  │  │  ├─ main.tf
+│  │  │  │  │  ├─ outputs.tf
+│  │  │  ├─ script/
+│  │  │  │  ├─ Cleanup-AWSResources.ps1
+│  │  │  │  ├─ Cleanup-AWSResources2.ps1
+│  │  │  ├─ terraform.tfvars
+│  │  │  ├─ variables.tf
+│  │  │  ├─ main.tf
+│  │  │  ├─ Cleanup-TerraformState.ps1
+│  │  │  ├─ outputs.tf
+│  │  ├─ app.py
+│  │  ├─ requirements.txt
+│  │  ├─ Dockerfile
+│  │  ├─ README.md
+│  ├─ s15_streamlit-fargate-whitelist/
+│  │  ├─ script/
+│  │  │  ├─ update-fargate-image.ps1
+│  │  ├─ Terraform/
+│  │  │  ├─ terraform.tfvars
+│  │  │  ├─ variables.tf
+│  │  │  ├─ main.tf
+│  │  │  ├─ whitelist.csv
+│  │  │  ├─ outputs.tf
+│  │  ├─ app.py
+│  │  ├─ requirements.txt
+│  │  ├─ Dockerfile
+│  │  ├─ README.md
+│  ├─ s16_neko-neko-ai-fargate/
+│  │  ├─ script/
+│  │  │  ├─ update-fargate-image.ps1
+│  │  ├─ pages/
+│  │  │  ├─ ReleaseNotes.py
+│  │  │  ├─ README.py
+│  │  ├─ Terraform/
+│  │  │  ├─ terraform.tfvars
+│  │  │  ├─ variables.tf
+│  │  │  ├─ main.tf
+│  │  │  ├─ whitelist.csv
+│  │  │  ├─ outputs.tf
+│  │  ├─ app.py
+│  │  ├─ requirements.txt
+│  │  ├─ Dockerfile
+│  │  ├─ README.md
+│  ├─ s11-docker-ec2-scheduler-moa-update/
+│  │  ├─ modules/
+│  │  │  ├─ compute/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ iam/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ networking/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  ├─ scripts/
+│  │  │  ├─ setup_script.sh
+│  │  ├─ providers.tf
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ outputs.tf
+│  ├─ s18-docker-ec2-gitlab/
+│  │  ├─ modules/
+│  │  │  ├─ compute/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ iam/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ networking/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  ├─ scripts/
+│  │  │  ├─ setup_script.sh
+│  │  ├─ providers.tf
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ docker-compose.yml
+│  │  ├─ whitelist.csv
+│  │  ├─ outputs.tf
+│  ├─ s11_streamlit-fargate/
+│  │  ├─ app.py
+│  │  ├─ requirements.txt
+│  │  ├─ Dockerfile
+│  │  ├─ README.md
+│  │  ├─ main.tf
+│  ├─ s04_simple_lambda/
+│  │  ├─ lambda/
+│  │  │  ├─ test/
+│  │  │  │  ├─ src/
+│  │  │  │  │  ├─ test_terraform.py
+│  │  ├─ client.py
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  ├─ s09-ec2-docker-moa/
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ setup_script.sh
+│  │  ├─ main.tf
+│  ├─ s13_streamlit-fargate-ial/
+│  │  ├─ Terraform/
+│  │  │  ├─ terraform.tfvars
+│  │  │  ├─ variables.tf
+│  │  │  ├─ main.tf
+│  │  │  ├─ outputs.tf
+│  │  ├─ app.py
+│  │  ├─ requirements.txt
+│  │  ├─ Dockerfile
+│  │  ├─ README.md
+│  ├─ s01_streamlit_aws_setup/
+│  │  ├─ terraform.tfstate
+│  │  ├─ streamlit_aws_setup.tf
+│  ├─ s06_fastapi_lambda/
+│  │  ├─ app.py
+│  │  ├─ requirements.txt
+│  │  ├─ Dockerfile
+│  │  ├─ lambda_tester_local.py
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ lambda_tester_api.py
+│  ├─ s03_ec2_aws_visual/
+│  │  ├─ aws-infrastructure-diagram.py
+│  │  ├─ Dockerfile
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ aws_terraform_visualizer3.py
+│  │  ├─ main.tf
+│  │  ├─ docker-compose.yml
+│  │  ├─ terraform_vis_prompt_generator.py
+│  ├─ s17-docker-ec2-litellm-server/
+│  │  ├─ modules/
+│  │  │  ├─ compute/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ iam/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ networking/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  ├─ scripts/
+│  │  │  ├─ setup_script.sh
+│  │  ├─ providers.tf
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ whitelist.csv
+│  │  ├─ outputs.tf
+│  ├─ s05_api_lambda/
+│  │  ├─ lambda/
+│  │  │  ├─ test/
+│  │  │  │  ├─ src/
+│  │  │  │  │  ├─ test_terraform.py
+│  │  ├─ client.py
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  ├─ s02_streamlit_aws_deployer/
+│  │  ├─ terraform.tfstate
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  ├─ s10-docker-ec2-scheduler-moa/
+│  │  ├─ modules/
+│  │  │  ├─ compute/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ iam/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  │  ├─ networking/
+│  │  │  │  ├─ variables.tf
+│  │  │  │  ├─ main.tf
+│  │  │  │  ├─ outputs.tf
+│  │  ├─ scripts/
+│  │  │  ├─ setup_script.sh
+│  │  ├─ providers.tf
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  │  ├─ outputs.tf
+│  ├─ s08_ec2_docker/
+│  │  ├─ terraform.tfvars
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ main.tf
+│  ├─ s07_simple_sso/
+│  │  ├─ README.md
+│  │  ├─ variables.tf
+│  │  ├─ terraform.example.tfvars
+│  │  ├─ main.tf
 │  ├─ README.md
-├─ docs/
-│  ├─ REQUIREMENTS_DEFINITION.md
 ├─ issue_creator.log
-├─ README.md
 ├─ pyproject.toml
+├─ README.md
 ```
 
 ## 🛠 サンドボックス環境
@@ -277,10 +510,17 @@ aws-terraform-sandbox/
     - AWS Systems Managerとの統合によるインスタンス管理の簡素化
     - LiteLLMを通じた様々な言語モデルのサポート
     
+17. **s18-docker-ec2-gitlab**: AWS EC2上にGitLabサーバーを自動的にデプロイします。
+    - 🎉 **`s18-docker-ec2-gitlab` サンドボックス環境を追加** 🟢
+    - DockerとGitLabがプリインストールされたEC2インスタンスを自動的にデプロイします。
+    -  GitLabへのアクセスを許可するIPアドレスのホワイトリストを定義できます。
+    - `docker-compose.yml`ファイルで、GitLabサーバーのバックアップを自動化するバックアップサービスが定義されています。
+    
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v2.5.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.5.0) :  GitLabサーバーを自動的にデプロイする新しいサンドボックス環境`s18-docker-ec2-gitlab`が追加されました。 🟢
 - 🎉 [v2.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.4.0) :  LiteLLMサーバーの初期化スクリプトを追加し、セキュリティ強化と使い勝手の向上を行いました。 🟢
 - 🎉 [v2.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.3.0) : `s16_neko-neko-ai-fargate` サンドボックス環境の追加、`s14_streamlit-fargate-ial-modular` の改善、ドキュメントの更新 🟢
 - 🎉 [v2.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.2.0) : `s15_streamlit-fargate-whitelist` サンドボックス環境の追加と、ドキュメントの更新 🟢
@@ -291,38 +531,4 @@ aws-terraform-sandbox/
 - 🎉 [v1.8.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.8.0) : FastAPIをAWS LambdaとAPI Gatewayを使用してデプロイする環境を提供します。 🟢
 - 🎉 [v1.7.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.7.0) : API GatewayとLambda関数を統合したサーバーレスAPIのデプロイ環境である`s05_api_lambda`サンドボックス環境を追加 🟢
 - 🎉 [v1.6.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.6.0) : シンプルなLambda関数のデプロイと管理のためのサンドボックス環境を追加しました。 🟢
-- 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : EC2インスタンスとその関連リソースの可視化機能、生成AI を活用した AWS 構成図の自動生成機能を追加しました 🟢
-- 🎉 [v1.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.4.0) : EC2 AWS Visual Sandboxを追加 🟢
-- 🎉 [v1.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.3.0) : Streamlitアプリデプロイヤーのセキュリティ強化とドキュメント改善
-- 🎉 [v1.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.2.0) : StreamlitアプリのデプロイメントのためのTerraform設定を追加
-- 🎉 [v1.1.1](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.1) : ドキュメントの改善とスタイルの変更
-- 🎉 [v1.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.1.0) : ヘッダー画像生成アルゴリズムの調整
-- [v1.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v1.0.0) : 整備化スクリプトの整備
-
-## 🤖 生成AI活用
-
-このリポジトリでは、生成AIを活用してTerraformスクリプトを作成しています。生成AIを使用してインフラストラクチャを設計・実装するための要件定義書は [docs/REQUIREMENTS_DEFINITION.md](docs/REQUIREMENTS_DEFINITION.md) にあります。この文書を参照することで、効果的に生成AIを活用してAWSリソースを構築する方法を学ぶことができます。
-
-## 🤝 コントリビューション
-
-1. このリポジトリをフォークします。
-2. 新しいブランチを作成します（`git checkout -b feature/amazing-feature`）。
-3. 変更をコミットします（`git commit -m 'Add some amazing feature'`）。
-4. ブランチにプッシュします（`git push origin feature/amazing-feature`）。
-5. プルリクエストを作成します。
-
-## 📄 ライセンス
-
-このプロジェクトはMITライセンスの下で公開されています。詳細は[LICENSE](LICENSE)ファイルをご覧ください。
-
-## 🙏 謝辞
-
-- [Terraform](https://www.terraform.io/)
-- [AWS](https://aws.amazon.com/)
-- [Streamlit](https://streamlit.io/)
-
----
-
-開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
-</readme>
-```
+- 🎉 [v1.5.0](https://github.com/Sunwood-ai-labs/AlphaExperiment/releases/tag/v1.11.1) : EC2インスタンスとその関連リソースの可視化機能、生成
