@@ -90,6 +90,14 @@ s17-docker-ec2-litellm-server/
 - カスタマイズ可能なリクエスト/レスポンス処理とキャッシング
 - モニタリングとロギング機能
 
+> [!NOTE]
+> litellmの初期化のための下記のコマンドを実行してください
+> 
+> `sudo docker-compose exec litellm /bin/bash`
+>
+> `python db_scripts/create_views.py`
+
+
 ## 🔐 セキュリティ考慮事項
 
 - EC2インスタンスはパブリックサブネットにデプロイされますが、セキュリティグループによってアクセスが制限されています
