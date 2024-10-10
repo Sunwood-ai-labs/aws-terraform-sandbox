@@ -44,6 +44,6 @@ chmod 600 /home/ubuntu/litellm-JP/.env
 cd /home/ubuntu/litellm-JP
 
 # Run docker-compose with the specified file
-sudo docker-compose -f docker-compose.yml up -d
+sudo docker-compose  up -d
 
 echo "litellm-JP setup completed and docker-compose started!"
