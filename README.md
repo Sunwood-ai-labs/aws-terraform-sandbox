@@ -1,3 +1,4 @@
+<readme>
 <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/aws-terraform-sandbox.png" width="100%">
 <br>
@@ -256,10 +257,32 @@ aws-terraform-sandbox/
     - IPホワイトリスト機能を導入し、ALB へのアクセスを制限できます。
     - PowerShellスクリプトを使用して、Fargateイメージを更新できます。
 
+15. **s16_neko-neko-ai-fargate**: AWS Fargate で Streamlit アプリケーションをデプロイし、IP ホワイトリスト機能を追加した環境を提供します。
+    - 🎉 **`s16_neko-neko-ai-fargate` サンドボックス環境を追加** 🟢
+    - Dockerを使用してStreamlitアプリケーションをコンテナ化します。
+    - AWS Fargate上にコンテナをデプロイし、スケーラブルな環境を構築します。
+    - Application Load Balancerを使用してトラフィックを分散します。
+    - VPCとセキュリティグループを使用してセキュアなネットワーク設定を提供します。
+    - ECSクラスターとタスク定義の自動セットアップを行います。
+    - IPホワイトリスト機能を導入し、ALB へのアクセスを制限できます。
+    - PowerShellスクリプトを使用して、Fargateイメージを更新できます。
+    - AWS BedrockのClaude-3-haikuモデルを活用した、猫らしい口調でユーザーと対話するAIアシスタントを提供するStreamlitアプリケーションのデプロイ環境。
+
+16. **s17-docker-ec2-litellm-server**: AWS EC2上でLiteLLMサーバーを自動的にデプロイします。
+    - 🎉 **`s17-docker-ec2-litellm-server` サンドボックス環境を追加** 🟢
+    - DockerとLiteLLMがプリインストールされたEC2インスタンスを自動的にデプロイします。
+    - コスト最適化のためのスケジュール設定（開始：日本時間午前8時、日〜木曜日、停止：日本時間午後4時、月〜金曜日）
+    - VPC、サブネット、セキュリティグループを使用した安全なネットワーク設定
+    - EC2インスタンスとEventBridge用のIAMロールとポリシー
+    - AWS Systems Managerとの統合によるインスタンス管理の簡素化
+    - LiteLLMを通じた様々な言語モデルのサポート
+    
 各サンドボックス環境の詳細については、[sandbox/README.md](sandbox/README.md)を参照してください。
 
 ## 📝 更新情報
 
+- 🎉 [v2.4.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.4.0) :  LiteLLMサーバーの初期化スクリプトを追加し、セキュリティ強化と使い勝手の向上を行いました。 🟢
+- 🎉 [v2.3.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.3.0) : `s16_neko-neko-ai-fargate` サンドボックス環境の追加、`s14_streamlit-fargate-ial-modular` の改善、ドキュメントの更新 🟢
 - 🎉 [v2.2.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.2.0) : `s15_streamlit-fargate-whitelist` サンドボックス環境の追加と、ドキュメントの更新 🟢
 - 🎉 [v2.1.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.1.0) : `s13_streamlit-fargate-ial` サンドボックス環境の改善と、ドキュメントの更新 🟢
 - 🎉 [v2.0.0](https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/releases/tag/v2.0.0) : MOAプロジェクトのデプロイ機能、Gemini-1.5-flashモデルの追加、EC2スケジューラーの実装など 🟢
@@ -302,3 +325,4 @@ aws-terraform-sandbox/
 
 開発者：[Sunwood-ai-labs](https://github.com/Sunwood-ai-labs)
 </readme>
+```
