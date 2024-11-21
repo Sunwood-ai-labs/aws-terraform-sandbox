@@ -1,11 +1,12 @@
-# Project: s16_neko-neko-ai-fargate
-
 <p align="center">
 <img src="https://huggingface.co/datasets/MakiAi/IconAssets/resolve/main/neko-neko-ai.png" width="30%">
 <br>
-<h1 align="center">🐱 ねこねこカンパニー AIアシスタント</h1>
+<h1 align="center">🐱 ねこねこカンパニー AIアシスタント V0.2</h1>
 <h2 align="center">
   ～ AWS Fargate上のStreamlitチャットボットアプリケーション ～
+  <br>
+  <p><a href="https://github.com/Sunwood-ai-labs/aws-terraform-sandbox/tree/main/sandbox/s16_neko-neko-ai-fargate">Project: s16_neko-neko-ai-fargate</a></p>
+  
 </h2>
 
 </p>
@@ -76,6 +77,12 @@ s16_neko-neko-ai-fargate/
    docker build -t neko-neko-ai-app .
    ```
 
+#### 確認コマンド
+
+   ```bash
+   docker run -p 8501:8501 neko-neko-ai-app
+   ```
+
 3. イメージをAmazon ECRにプッシュします：
 
    a. ECRリポジトリを作成：
@@ -132,6 +139,12 @@ s16_neko-neko-ai-fargate/
    ```
 
 7. デプロイが完了したら、出力されたALBのDNS名を使用してアプリケーションにアクセスできます。
+
+8. 便利コマンド
+
+```bash
+terraform destroy --auto-approve; terraform init ; terraform plan ; terraform apply --auto-approve; 
+```
 
 ## 📊 アプリケーションの特徴
 
